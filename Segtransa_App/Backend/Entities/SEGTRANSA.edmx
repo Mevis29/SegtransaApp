@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SEGTRANSAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activos">
+          <Key>
+            <PropertyRef Name="idActivo" />
+          </Key>
+          <Property Name="idActivo" Type="int" Nullable="false" />
+          <Property Name="nombreActivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="90" />
+          <Property Name="foto" Type="image" />
+          <Property Name="precioInicial" Type="money" />
+          <Property Name="fechaCompra" Type="datetime" />
+          <Property Name="idProveedor" Type="int" />
+          <Property Name="idEstadoActivo" Type="int" />
+        </EntityType>
+        <EntityType Name="Asignaciones">
+          <Key>
+            <PropertyRef Name="idAsignacion" />
+          </Key>
+          <Property Name="idAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idActivo" Type="int" />
+          <Property Name="fechaInicialAsignacion" Type="datetime" />
+          <Property Name="fechafinalAsignacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="idBitacora" />
+          </Key>
+          <Property Name="idBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaBitacora" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="detalleBitacora" Type="nvarchar" MaxLength="90" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="EstadoActivos">
+          <Key>
+            <PropertyRef Name="idEstadoActivo" />
+          </Key>
+          <Property Name="idEstadoActivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreEstado" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="idProveedor" />
+          </Key>
+          <Property Name="idProveedor" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="75" />
+          <Property Name="email" Type="nvarchar" MaxLength="90" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="90" />
+        </EntityType>
+        <EntityType Name="Rol_Usuarios">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreRol" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido2" Type="nvarchar" MaxLength="50" />
+          <Property Name="contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="genero" Type="char" MaxLength="1" />
+          <Property Name="email" Type="nvarchar" MaxLength="75" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="75" />
+          <Property Name="fechaCreacion" Type="datetime" />
+          <Property Name="idRol" Type="int" />
+        </EntityType>
+        <Association Name="FK_Allocations_Assets">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="idActivo" />
+            </Principal>
+            <Dependent Role="Asignaciones">
+              <PropertyRef Name="idActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Allocations_Users">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Asignaciones">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assets_Assets_Status">
+          <End Role="EstadoActivos" Type="Self.EstadoActivos" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoActivos">
+              <PropertyRef Name="idEstadoActivo" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="idEstadoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assets_Suppliers">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="idProveedor" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="idProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Users">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Rol_Users">
+          <End Role="Rol_Usuarios" Type="Self.Rol_Usuarios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol_Usuarios">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEGTRANSAModelStoreContainer">
+          <EntitySet Name="Activos" EntityType="Self.Activos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoActivos" EntityType="Self.EstadoActivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol_Usuarios" EntityType="Self.Rol_Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Allocations_Assets" Association="Self.FK_Allocations_Assets">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Allocations_Users" Association="Self.FK_Allocations_Users">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assets_Assets_Status" Association="Self.FK_Assets_Assets_Status">
+            <End Role="EstadoActivos" EntitySet="EstadoActivos" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assets_Suppliers" Association="Self.FK_Assets_Suppliers">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Users" Association="Self.FK_Bitacora_Users">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Rol_Users" Association="Self.FK_Users_Rol_Users">
+            <End Role="Rol_Usuarios" EntitySet="Rol_Usuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SEGTRANSAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activos">
+          <Key>
+            <PropertyRef Name="idActivo" />
+          </Key>
+          <Property Name="idActivo" Type="Int32" Nullable="false" />
+          <Property Name="nombreActivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="precioInicial" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fechaCompra" Type="DateTime" Precision="3" />
+          <Property Name="idProveedor" Type="Int32" />
+          <Property Name="idEstadoActivo" Type="Int32" />
+          <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Allocations_Assets" FromRole="Activos" ToRole="Asignaciones" />
+          <NavigationProperty Name="EstadoActivos" Relationship="Self.FK_Assets_Assets_Status" FromRole="Activos" ToRole="EstadoActivos" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK_Assets_Suppliers" FromRole="Activos" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="Asignaciones">
+          <Key>
+            <PropertyRef Name="idAsignacion" />
+          </Key>
+          <Property Name="idAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idActivo" Type="Int32" />
+          <Property Name="fechaInicialAsignacion" Type="DateTime" Precision="3" />
+          <Property Name="fechafinalAsignacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Allocations_Assets" FromRole="Asignaciones" ToRole="Activos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Allocations_Users" FromRole="Asignaciones" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="idBitacora" />
+          </Key>
+          <Property Name="idBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaBitacora" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="detalleBitacora" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="idUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Bitacora_Users" FromRole="Bitacora" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="EstadoActivos">
+          <Key>
+            <PropertyRef Name="idEstadoActivo" />
+          </Key>
+          <Property Name="idEstadoActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreEstado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Assets_Assets_Status" FromRole="EstadoActivos" ToRole="Activos" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="idProveedor" />
+          </Key>
+          <Property Name="idProveedor" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Assets_Suppliers" FromRole="Proveedores" ToRole="Activos" />
+        </EntityType>
+        <EntityType Name="Rol_Usuarios">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Users_Rol_Users" FromRole="Rol_Usuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="idRol" Type="Int32" />
+          <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Allocations_Users" FromRole="Usuarios" ToRole="Asignaciones" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Users" FromRole="Usuarios" ToRole="Bitacora" />
+          <NavigationProperty Name="Rol_Usuarios" Relationship="Self.FK_Users_Rol_Users" FromRole="Usuarios" ToRole="Rol_Usuarios" />
+        </EntityType>
+        <Association Name="FK_Allocations_Assets">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="idActivo" />
+            </Principal>
+            <Dependent Role="Asignaciones">
+              <PropertyRef Name="idActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assets_Assets_Status">
+          <End Role="EstadoActivos" Type="Self.EstadoActivos" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoActivos">
+              <PropertyRef Name="idEstadoActivo" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="idEstadoActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Assets_Suppliers">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="idProveedor" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="idProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Allocations_Users">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Asignaciones">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Users">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Rol_Users">
+          <End Role="Rol_Usuarios" Type="Self.Rol_Usuarios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol_Usuarios">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activos" EntityType="Self.Activos" />
+          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" />
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="EstadoActivos" EntityType="Self.EstadoActivos" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
+          <EntitySet Name="Rol_Usuarios" EntityType="Self.Rol_Usuarios" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_Allocations_Assets" Association="Self.FK_Allocations_Assets">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assets_Assets_Status" Association="Self.FK_Assets_Assets_Status">
+            <End Role="EstadoActivos" EntitySet="EstadoActivos" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Assets_Suppliers" Association="Self.FK_Assets_Suppliers">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Allocations_Users" Association="Self.FK_Allocations_Users">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Asignaciones" EntitySet="Asignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Users" Association="Self.FK_Bitacora_Users">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Rol_Users" Association="Self.FK_Users_Rol_Users">
+            <End Role="Rol_Usuarios" EntitySet="Rol_Usuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SEGTRANSAModelStoreContainer" CdmEntityContainer="BDContext">
+          <EntitySetMapping Name="Activos">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Activos">
+              <MappingFragment StoreEntitySet="Activos">
+                <ScalarProperty Name="idActivo" ColumnName="idActivo" />
+                <ScalarProperty Name="nombreActivo" ColumnName="nombreActivo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="precioInicial" ColumnName="precioInicial" />
+                <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="idEstadoActivo" ColumnName="idEstadoActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asignaciones">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Asignaciones">
+              <MappingFragment StoreEntitySet="Asignaciones">
+                <ScalarProperty Name="idAsignacion" ColumnName="idAsignacion" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idActivo" ColumnName="idActivo" />
+                <ScalarProperty Name="fechaInicialAsignacion" ColumnName="fechaInicialAsignacion" />
+                <ScalarProperty Name="fechafinalAsignacion" ColumnName="fechafinalAsignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="idBitacora" ColumnName="idBitacora" />
+                <ScalarProperty Name="fechaBitacora" ColumnName="fechaBitacora" />
+                <ScalarProperty Name="detalleBitacora" ColumnName="detalleBitacora" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoActivos">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.EstadoActivos">
+              <MappingFragment StoreEntitySet="EstadoActivos">
+                <ScalarProperty Name="idEstadoActivo" ColumnName="idEstadoActivo" />
+                <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol_Usuarios">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Rol_Usuarios">
+              <MappingFragment StoreEntitySet="Rol_Usuarios">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SEGTRANSAModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

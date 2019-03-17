@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e226d030ffce4d35b9c48aa4dc94eb3a" Name="Diagram1">
+        <EntityTypeShape EntityType="SEGTRANSAModel.Activos" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.Asignaciones" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.Bitacora" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.EstadoActivos" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.Proveedores" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.Rol_Usuarios" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGTRANSAModel.Usuarios" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Allocations_Assets" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Assets_Assets_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Assets_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Allocations_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Bitacora_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGTRANSAModel.FK_Users_Rol_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
