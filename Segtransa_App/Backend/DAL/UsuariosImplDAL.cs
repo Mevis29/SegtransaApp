@@ -18,8 +18,8 @@ public class UsuariosImplDAL : IUsuariosDAL
         {
             using (context = new BDContext())
             {
-                Usuario.Rol_Usuarios = (from c in context.Rol_Usuarios
-                                        where c.idRol == Usuario.idRol
+                Usuario.RolUsuarios = (from c in context.RolUsuarios
+                                        where c.IdRol == Usuario.RolUsuario
                                         select c).First();
 
                 context.Usuarios.Add(Usuario);
@@ -67,7 +67,7 @@ public class UsuariosImplDAL : IUsuariosDAL
             using (context = new BDContext())
             {
                 result = (from c in context.Usuarios
-                          where c.idUsuario == idUsuario
+                          where c.IdUsuario == idUsuario
                           select c).First();
             }
             return result;
@@ -110,7 +110,7 @@ public class UsuariosImplDAL : IUsuariosDAL
         CryptoEngine cryptoEngine = new CryptoEngine();
         string passDecrypted = cryptoEngine.Decrypt(passUser);
         bool valid = false;
-        if (this.GetUsuario(idUsuario).contrasena.Equals(passDecrypted))
+        if (this.GetUsuario(idUsuario).Contrasena.Equals(passDecrypted))
         {
             valid = true;
         }

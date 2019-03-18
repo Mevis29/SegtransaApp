@@ -42,7 +42,7 @@ namespace FrontEnd
         {
             cmbBoxRol.DisplayMember = "nombreRol";
             cmbBoxRol.ValueMember = "idRol";
-            List<Rol_Usuarios> rol_Usuarios = rolUsuariosDAL.GetRols();
+            List<RolUsuarios> rol_Usuarios = rolUsuariosDAL.GetRols();
 
             cmbBoxRol.DataSource = rol_Usuarios;
         }
@@ -50,14 +50,13 @@ namespace FrontEnd
         private void frmUsuariosModifica_Load(object sender, EventArgs e)
         {
             CargaComboRoles();
-            txtNombre.Text = Usuario.nombre;
-            txtApellido1.Text = Usuario.apellido1;
-            txtApellido2.Text = Usuario.apellido2;
-            txtContrasena.Text = Usuario.contrasena;
-            txtDireccion.Text = Usuario.direccion;
-            txtEmail.Text = Usuario.email;
-            txtTelefono.Text = Usuario.telefono;
-            cmbBoxGeneros.Text = Usuario.genero;
+            txtNombre.Text = Usuario.Nombre;
+            txtApellido1.Text = Usuario.Apellido;
+            txtContrasena.Text = Usuario.Contrasena;
+            txtDireccion.Text = Usuario.Direccion;
+            txtEmail.Text = Usuario.Correo;
+            txtTelefono.Text = Usuario.Telefono;
+        
 
 
         }
@@ -66,16 +65,14 @@ namespace FrontEnd
         {
             try
             {
-                Usuario.nombre = txtNombre.Text;
-                Usuario.apellido1 = txtApellido1.Text;
-                Usuario.apellido2 = txtApellido2.Text;
-                Usuario.genero = (string)cmbBoxGeneros.SelectedItem;
-                Usuario.telefono = txtTelefono.Text;
-                Usuario.email = txtEmail.Text;
-                Usuario.direccion = txtDireccion.Text;
-                Usuario.idRol = (int)cmbBoxRol.SelectedValue;
-                Usuario.Rol_Usuarios = (Rol_Usuarios)cmbBoxRol.SelectedItem;
-                Usuario.contrasena = txtContrasena.Text;
+                Usuario.Nombre = txtNombre.Text;
+                Usuario.Apellido = txtApellido1.Text;
+                Usuario.Telefono = txtTelefono.Text;
+                Usuario.Correo = txtEmail.Text;
+                Usuario.Direccion = txtDireccion.Text;
+                Usuario.RolUsuario = (int)cmbBoxRol.SelectedValue;
+                Usuario.RolUsuarios = (RolUsuarios)cmbBoxRol.SelectedItem;
+                Usuario.Contrasena = txtContrasena.Text;
 
                 usuariosDAL.Update(Usuario);
                 MessageBox.Show("Usuario actualizado");

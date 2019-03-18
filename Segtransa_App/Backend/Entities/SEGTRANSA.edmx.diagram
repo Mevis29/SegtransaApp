@@ -4,20 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e226d030ffce4d35b9c48aa4dc94eb3a" Name="Diagram1">
-        <EntityTypeShape EntityType="SEGTRANSAModel.Activos" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.Asignaciones" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.Bitacora" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.EstadoActivos" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.Proveedores" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.Rol_Usuarios" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGTRANSAModel.Usuarios" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Allocations_Assets" ManuallyRouted="false" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Assets_Assets_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Assets_Suppliers" ManuallyRouted="false" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Allocations_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Bitacora_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="SEGTRANSAModel.FK_Users_Rol_Users" ManuallyRouted="false" />
+      <Diagram DiagramId="04b7bd3367404342950831610c9121ca" Name="Diagram1">
+        <EntityTypeShape EntityType="InventarioActivosModel.Activos" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.Bitacora" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.Categorias" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.Depreciacion" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.EstadoActivos" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.EstadoUsuarios" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.Proveedores" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.RolUsuarios" Width="1.5" PointX="3.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.THAsignaciones" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.THReparaciones" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventarioActivosModel.Usuarios" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="InventarioActivosModel.FK_Activo_Depc" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_Categ_Act" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_EstActivo_US" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_IdActivo_THA" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_IdActivo_THR" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_Proved_Act" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_IdUsuario_Bi" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_EstUsuario_US" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_RolUsuario_US" ManuallyRouted="false" />
+        <AssociationConnector Association="InventarioActivosModel.FK_IdUsuario_THA" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

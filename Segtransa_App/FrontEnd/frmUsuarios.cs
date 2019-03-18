@@ -36,7 +36,7 @@ namespace FrontEnd
 
             foreach(var item in usuarios)
             {
-                item.nombre = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                item.Nombre = item.Nombre + " " + item.Apellido;
             }
 
 
@@ -69,7 +69,7 @@ namespace FrontEnd
         private void btnModifyUser_Click(object sender, EventArgs e)
         {
             Usuarios usuario = (Usuarios)lstUsuarios.SelectedItem;
-            frmUsuariosModifica frm_UsuariosModifica = new frmUsuariosModifica(usuario.idUsuario); //(this)
+            frmUsuariosModifica frm_UsuariosModifica = new frmUsuariosModifica(usuario.IdUsuario); //(this)
             frm_UsuariosModifica.Show();
             this.Hide();
         }
@@ -90,10 +90,10 @@ namespace FrontEnd
             {
                 Usuarios usuario = (Usuarios)lstUsuarios.SelectedItem;
               
-                DialogResult dialogResult = MessageBox.Show("Seguro que desea eliminar al usuario " + usuario.nombre + "?", "Confirmación", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Seguro que desea eliminar al usuario " + usuario.Nombre + "?", "Confirmación", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    usuariosDAL.Delete(usuario.idUsuario);
+                    usuariosDAL.Delete(usuario.IdUsuario);
                     MessageBox.Show("Usuario Eliminado");
 
                     usuarios.Clear();

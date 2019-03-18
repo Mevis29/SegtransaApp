@@ -10,11 +10,11 @@ namespace Backend.DAL
 {
     public interface IAsignacionesDAL : IDisposable
     {
-        void Add(Asignaciones Asignacion);
+        void Add(THAsignaciones Asignacion);
         void Delete(int idAsignacion);
-        void Update(Asignaciones Asignacion);
-        Asignaciones GetAsignacion(int idAsignacion);
-        List<Asignaciones> GetAsignaciones();
-        List<Asignaciones> GetAsignaciones(int idUsuario);
+        void Update(THAsignaciones Asignacion);
+        THAsignaciones GetAsignacion(int idAsignacion);
+        List<THAsignaciones> GetAsignaciones();
+        List<THAsignaciones> GetAsignaciones(int idUsuario);
     }
 }

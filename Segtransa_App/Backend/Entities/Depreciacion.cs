@@ -12,15 +12,14 @@ namespace Backend.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Asignaciones
+    public partial class Depreciacion
     {
-        public int idAsignacion { get; set; }
-        public Nullable<int> idUsuario { get; set; }
-        public Nullable<int> idActivo { get; set; }
-        public Nullable<System.DateTime> fechaInicialAsignacion { get; set; }
-        public Nullable<System.DateTime> fechafinalAsignacion { get; set; }
+        public int IdDepreciacion { get; set; }
+        public int Activo { get; set; }
+        public System.DateTime FechaDepreciacion { get; set; }
+        public double MontoDepreciacion { get; set; }
+        public double Valor { get; set; }
     
         public virtual Activos Activos { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
     }
 }

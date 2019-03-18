@@ -17,24 +17,24 @@ public class RolUsuariosImplDAL : IRolUsuariosDAL
         throw new NotImplementedException();
     }
 
-    public List<Rol_Usuarios> GetRols()
+    public List<RolUsuarios> GetRols()
     {
-        List<Rol_Usuarios> result;
+        List<RolUsuarios> result;
         using (context = new BDContext())
         {
-            result = (from c in context.Rol_Usuarios
+            result = (from c in context.RolUsuarios
                       select c).ToList();
         }
         return result;
     }
 
-    public Rol_Usuarios GetRol(int idRolU)
+    public RolUsuarios GetRol(int idRolU)
     {
-        Rol_Usuarios result;
+        RolUsuarios result;
         using (context = new BDContext())
         {
-            result = (from c in context.Rol_Usuarios
-                      where c.idRol == idRolU
+            result = (from c in context.RolUsuarios
+                      where c.IdRol == idRolU
                       select c).First();
         }
         return result;

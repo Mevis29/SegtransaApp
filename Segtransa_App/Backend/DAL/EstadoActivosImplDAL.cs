@@ -54,7 +54,7 @@ public class EstadoActivosImplDAL : IEstadoActivosDAL
         using (context = new BDContext())
         {
             result = (from c in context.EstadoActivos
-                      where c.idEstadoActivo == idEstadoActivo
+                      where c.IdEstadoActivo == idEstadoActivo
                       select c).First();
         }
         return result;

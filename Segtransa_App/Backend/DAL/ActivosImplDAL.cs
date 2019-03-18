@@ -49,8 +49,8 @@ public class ActivosImplDAL : IActivosDAL
         IProveedoresDAL proveedoresDAL = new ProveedoresImplDAL();
         foreach (var item in result)
         {
-            item.EstadoActivos = estadoActivosDAL.GetEstadoActivo(item.idEstadoActivo ?? default(int));
-            item.Proveedores = proveedoresDAL.GetProveedor(item.idProveedor?? default(int));
+            item.EstadoActivos = estadoActivosDAL.GetEstadoActivo(item.EstadoActivo ?? default(int));
+            item.Proveedores = proveedoresDAL.GetProveedor(item.Proveedor?? default(int));
         }
         return result;
     }
@@ -61,13 +61,13 @@ public class ActivosImplDAL : IActivosDAL
         using (context = new BDContext())
         {
             result = (from c in context.Activos
-                      where c.idActivo == idActivo
+                      where c.IdActivo == idActivo
                       select c).First();
         }
         IEstadoActivosDAL estadoActivosDAL = new EstadoActivosImplDAL();
         IProveedoresDAL proveedoresDAL = new ProveedoresImplDAL();
-        result.EstadoActivos = estadoActivosDAL.GetEstadoActivo(result.idEstadoActivo ?? default(int));
-        result.Proveedores = proveedoresDAL.GetProveedor(result.idProveedor ?? default(int));
+        result.EstadoActivos = estadoActivosDAL.GetEstadoActivo(result.EstadoActivo ?? default(int));
+        result.Proveedores = proveedoresDAL.GetProveedor(result.Proveedor ?? default(int));
         return result;
     }
 
@@ -93,9 +93,9 @@ public class ActivosImplDAL : IActivosDAL
         int nextId = 0;
         foreach (var a in this.GetActivos())
         {
-            if (a.idActivo > nextId)
+            if (a.IdActivo > nextId)
             {
-                nextId = a.idActivo;
+                nextId = a.IdActivo;
             }
         }
         nextId = nextId + 1;

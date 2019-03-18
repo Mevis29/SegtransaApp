@@ -70,9 +70,9 @@ namespace FrontEnd
                     Activos activo = activosDAL.GetActivo(Int32.Parse(listView1.SelectedItems[0].SubItems[0].Text));
                     List<EstadoActivos> listaEstadosActivos = estadosActivosDAL.GetEstadoActivos();
                     activo.EstadoActivos = estadosActivosDAL.GetEstadoActivo(2);
-                    activo.idEstadoActivo = estadosActivosDAL.GetEstadoActivo(2).idEstadoActivo;
+                    activo.EstadoActivo = estadosActivosDAL.GetEstadoActivo(2).IdEstadoActivo;
                     activosDAL.Update(activo);
-                    MessageBox.Show("Activo #" + activo.idActivo + " desactivado.");
+                    MessageBox.Show("Activo #" + activo.IdActivo + " desactivado.");
                 } else
                 {
                     MessageBox.Show("Por favor seleccionar activo a desabilitar!");
@@ -100,18 +100,18 @@ namespace FrontEnd
         private void cargaListaActivos()
         {
             List<Activos> listaActivos = activosDAL.GetActivos();
-            string nombreActivo, descripcionActivo, precio, fechaCompra, idAct, proveedor, estado;
+            string CodActivo, descripcionActivo, precio, fechaCompra, idAct, proveedor, estado;
             foreach (var item in listaActivos)
             {
-                nombreActivo = activosDAL.GetActivo(item.idActivo).nombreActivo;
-                estado = activosDAL.GetActivo(item.idActivo).EstadoActivos.nombreEstado;
-                descripcionActivo = activosDAL.GetActivo(item.idActivo).descripcion;
-                fechaCompra = activosDAL.GetActivo(item.idActivo).fechaCompra.ToString();
-                precio = activosDAL.GetActivo(item.idActivo).precioInicial.ToString(); 
-                idAct = activosDAL.GetActivo(item.idActivo).idActivo.ToString();
-                proveedor = activosDAL.GetActivo(item.idActivo).Proveedores.nombre;
+                CodActivo = activosDAL.GetActivo(item.IdActivo).CodActivo;
+                estado = activosDAL.GetActivo(item.IdActivo).EstadoActivos.NombreEstado;
+                descripcionActivo = activosDAL.GetActivo(item.IdActivo).Descripcion;
+                fechaCompra = activosDAL.GetActivo(item.IdActivo).FechaCompra.ToString();
+                precio = activosDAL.GetActivo(item.IdActivo).PrecioInicial.ToString(); 
+                idAct = activosDAL.GetActivo(item.IdActivo).IdActivo.ToString();
+                proveedor = activosDAL.GetActivo(item.IdActivo).Proveedores.NombreProveedor;
                 ListViewItem viewItem = new ListViewItem(idAct);
-                viewItem.SubItems.Add(nombreActivo);
+                viewItem.SubItems.Add(CodActivo);
                 viewItem.SubItems.Add(descripcionActivo);
                 viewItem.SubItems.Add(precio);
                 viewItem.SubItems.Add(fechaCompra);

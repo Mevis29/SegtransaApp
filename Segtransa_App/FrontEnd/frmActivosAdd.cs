@@ -56,13 +56,13 @@ namespace FrontEnd
             try
             {
                 activo = new Activos();
-                activo.idActivo = activosDAL.getNextId();
-                activo.nombreActivo = txtNmbr.Text;
-                activo.descripcion = txtBxDesc.Text;
-                activo.precioInicial = decimal.Parse(txtPrc.Text);
-                activo.fechaCompra = dateCompra.Value.Date;
-                activo.idProveedor = (int)cmbBoxPrvdr.SelectedValue;
-                activo.idEstadoActivo = (int)cmbBoxStt.SelectedValue;
+                activo.IdActivo = activosDAL.getNextId();
+                activo.CodActivo = txtNmbr.Text;
+                activo.Descripcion = txtBxDesc.Text;
+                activo.PrecioInicial = decimal.Parse(txtPrc.Text);
+                activo.FechaCompra = dateCompra.Value.Date;
+                activo.Proveedor = (int)cmbBoxPrvdr.SelectedValue;
+                activo.EstadoActivo = (int)cmbBoxStt.SelectedValue;
                 activosDAL.Add(activo);
                 MessageBox.Show("Activo agregado!");
             }

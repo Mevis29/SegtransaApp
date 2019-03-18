@@ -46,7 +46,7 @@ namespace FrontEnd
         private void btnActualizarClave_Click(object sender, EventArgs e)
         {
             IUsuariosDAL usuariosDAL = new UsuariosImplDAL();
-            usuarios.contrasena = txbClave.Text;
+            usuarios.Contrasena = txbClave.Text;
             usuariosDAL.Update(usuarios);
             showInfo("Su clave de ingreso fue actualizada!");
         }
@@ -56,8 +56,7 @@ namespace FrontEnd
             lvMisDatos.View = View.Details;
             lvMisDatos.Columns.Add("Id");
             lvMisDatos.Columns.Add("Nombre");
-            lvMisDatos.Columns.Add("1er Apellido");
-            lvMisDatos.Columns.Add("2do Apellido");
+            lvMisDatos.Columns.Add("Apellido");
             lvMisDatos.Columns.Add("Telefono");
             lvMisDatos.Columns.Add("Email");
             lvMisDatos.Columns.Add("Direccion");
@@ -67,16 +66,15 @@ namespace FrontEnd
             lvMisDatos.Columns[3].Width = -2;
             lvMisDatos.Columns[4].Width = -2;
             lvMisDatos.Columns[5].Width = -2;
-            lvMisDatos.Columns[6].Width = -2;
-            string nombre, apellido1, apellido2, idUs, telefono, email, direccion;
-            nombre = usuarios.nombre;
-            apellido1 = usuarios.apellido1;
-            apellido2 = usuarios.apellido2;
-            idUs = usuarios.idUsuario.ToString();
-            telefono = usuarios.telefono;
-            direccion = usuarios.direccion;
-            email = usuarios.email;
-            string[] listS = { idUs, nombre, apellido1, apellido2, telefono, email, direccion };
+            
+            string nombre, apellido1, idUs, telefono, email, direccion;
+            nombre = usuarios.Nombre;
+            apellido1 = usuarios.Apellido;
+            idUs = usuarios.IdUsuario.ToString();
+            telefono = usuarios.Telefono;
+            direccion = usuarios.Direccion;
+            email = usuarios.Correo;
+            string[] listS = { idUs, nombre, apellido1,telefono, email, direccion };
             lvMisDatos.Items.Add(new ListViewItem(listS));
         }
 

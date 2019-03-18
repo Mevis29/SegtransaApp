@@ -38,7 +38,7 @@ namespace FrontEnd
         {
             cmbBoxRol.DisplayMember = "nombreRol";
             cmbBoxRol.ValueMember = "idRol";
-            List<Rol_Usuarios> rol_Usuarios = rolUsuariosDAL.GetRols();
+            List<RolUsuarios> rol_Usuarios = rolUsuariosDAL.GetRols();
 
             cmbBoxRol.DataSource = rol_Usuarios;
         }
@@ -64,17 +64,15 @@ namespace FrontEnd
             try
             {
                 Usuario = new Usuarios();
-                Usuario.nombre = txtNombre.Text;
-                Usuario.apellido1 = txtApellido1.Text;
-                Usuario.apellido2 = txtApellido2.Text;
-                Usuario.genero = (string)cmbBoxGeneros.SelectedItem;
-                Usuario.telefono = txtTelefono.Text;
-                Usuario.email = txtEmail.Text;
-                Usuario.direccion = txtDireccion.Text;
-                Usuario.idRol = (int)cmbBoxRol.SelectedValue;
-                Usuario.Rol_Usuarios = (Rol_Usuarios)cmbBoxRol.SelectedItem;
-                Usuario.contrasena = txtContrasena.Text;
-                Usuario.fechaCreacion =  DateTime.Now;
+                Usuario.Nombre = txtNombre.Text;
+                Usuario.Apellido = txtApellido1.Text;
+                Usuario.Telefono = txtTelefono.Text;
+                Usuario.Correo = txtEmail.Text;
+                Usuario.Direccion = txtDireccion.Text;
+                Usuario.RolUsuario = (int)cmbBoxRol.SelectedValue;
+                Usuario.RolUsuarios = (RolUsuarios)cmbBoxRol.SelectedItem;
+                Usuario.Contrasena = txtContrasena.Text;
+                Usuario.FechaCreacion =  DateTime.Now;
 
                 usuariosDAL.Add(Usuario);
                 MessageBox.Show("Usuario agregado");

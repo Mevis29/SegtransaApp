@@ -23,7 +23,7 @@ namespace FrontEnd
         public frmMenuReporte(Usuarios user, Form prevForm)
         {
             InitializeComponent();
-            if (user.idRol != 1)
+            if (user.RolUsuario != 1)
             {
                 btnActivos.Enabled = false;
                 btnUsuarios.Enabled = false;
@@ -41,7 +41,7 @@ namespace FrontEnd
 
         private void printInfo()
         {
-            lblNombre.Text = usuario.nombre + " " + usuario.apellido1 + " " + usuario.apellido2;
+            lblNombre.Text = usuario.Nombre + " " + usuario.Apellido;
             lblFecha.Text = DateTime.Today.ToShortDateString();
         }
 
@@ -74,7 +74,7 @@ namespace FrontEnd
 
         private void btnMisActivos_Click(object sender, EventArgs e)
         {
-            frmMisActivos frm_MisActivos = new frmMisActivos(usuario.idUsuario, this);
+            frmMisActivos frm_MisActivos = new frmMisActivos(usuario.IdUsuario, this);
             frm_MisActivos.Show();
             this.Hide();
         }

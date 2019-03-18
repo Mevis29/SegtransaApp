@@ -12,22 +12,22 @@ public class AsignacionesImplDAL : IAsignacionesDAL
 
     private BDContext context;
 
-    public void Add(Asignaciones Asignacion)
+    public void Add(THAsignaciones Asignacion)
     {
         using (context = new BDContext())
         {
-            context.Asignaciones.Add(Asignacion);
+            context.THAsignaciones.Add(Asignacion);
             context.SaveChanges();
         }
     }
 
     public void Delete(int idAsignacion)
     {
-        Asignaciones Asignacion = this.GetAsignacion(idAsignacion);
+        THAsignaciones Asignacion = this.GetAsignacion(idAsignacion);
         using (context = new BDContext())
         {
-            context.Asignaciones.Attach(Asignacion);
-            context.Asignaciones.Remove(Asignacion);
+            context.THAsignaciones.Attach(Asignacion);
+            context.THAsignaciones.Remove(Asignacion);
             context.SaveChanges();
         }
     }
@@ -37,42 +37,42 @@ public class AsignacionesImplDAL : IAsignacionesDAL
         throw new NotImplementedException();
     }
 
-    public List<Asignaciones> GetAsignaciones()
+    public List<THAsignaciones> GetAsignaciones()
     {
-        List<Asignaciones> result;
+        List<THAsignaciones> result;
         using (context = new BDContext())
         {
-            result = (from c in context.Asignaciones
+            result = (from c in context.THAsignaciones
                       select c).ToList();
         }
         return result;
     }
 
-    public List<Asignaciones> GetAsignaciones(int idUsuario)
+    public List<THAsignaciones> GetAsignaciones(int idUsuario)
     {
-        List<Asignaciones> result;
+        List<THAsignaciones> result;
         using (context = new BDContext())
         {
-            result = (from c in context.Asignaciones
-                      where c.idUsuario == idUsuario
+            result = (from c in context.THAsignaciones
+                      where c.IdUsuario == idUsuario
                       select c).ToList();
         }
         return result;
     }
 
-    public Asignaciones GetAsignacion(int idAsignacion)
+    public THAsignaciones GetAsignacion(int idAsignacion)
     {
-        Asignaciones result;
+        THAsignaciones result;
         using (context = new BDContext())
         {
-            result = (from c in context.Asignaciones
-                      where c.idAsignacion == idAsignacion
+            result = (from c in context.THAsignaciones
+                      where c.IdAsignacion == idAsignacion
                       select c).First();
         }
         return result;
     }
 
-    public void Update(Asignaciones Asignacion)
+    public void Update(THAsignaciones Asignacion)
     {
         try
         {

@@ -27,11 +27,11 @@ namespace FrontEnd
             activo = referenciaActivo;
             cmbBoxPrvdr.DisplayMember = "nombre";
             cmbBoxPrvdr.ValueMember = "idProveedor";
-            cmbBoxPrvdr.SelectedValue = activo.idProveedor;
+            cmbBoxPrvdr.SelectedValue = activo.Proveedor;
             cmbBoxPrvdr.DataSource = proveedores.GetProveedores();
             cmbBoxStt.DisplayMember = "nombreEstado";
             cmbBoxStt.ValueMember = "idEstadoActivo";
-            cmbBoxStt.SelectedValue = activo.idEstadoActivo;
+            cmbBoxStt.SelectedValue = activo.EstadoActivo;
             cmbBoxStt.DataSource = estadoDAL.GetEstadoActivos();
 
             activo = referenciaActivo;
@@ -43,12 +43,12 @@ namespace FrontEnd
         {
             try
             {
-                activo.nombreActivo = txtNombre.Text;
-                activo.descripcion = txtBxDesc.Text;
-                activo.precioInicial = decimal.Parse(txtPrcIni.Text);
-                activo.fechaCompra = dateCompra.Value.Date;
-                activo.idProveedor = Convert.ToInt32(cmbBoxPrvdr.SelectedValue.ToString());
-                activo.idEstadoActivo = Convert.ToInt32(cmbBoxStt.SelectedValue.ToString());
+                activo.CodActivo = txtNombre.Text;
+                activo.Descripcion = txtBxDesc.Text;
+                activo.PrecioInicial = decimal.Parse(txtPrcIni.Text);
+                activo.FechaCompra = dateCompra.Value.Date;
+                activo.Proveedor = Convert.ToInt32(cmbBoxPrvdr.SelectedValue.ToString());
+                activo.EstadoActivo = Convert.ToInt32(cmbBoxStt.SelectedValue.ToString());
                 activosDAL.Update(activo);
             }
             catch (Exception ex)

@@ -54,7 +54,7 @@ public class ProveedoresImplDAL : IProveedoresDAL
         using (context = new BDContext())
         {
             result = (from c in context.Proveedores
-                      where c.idProveedor == idProveedor
+                      where c.IdProveedor == idProveedor
                       select c).First();
         }
         return result;

@@ -26,11 +26,15 @@ namespace Backend.Entities
         }
     
         public virtual DbSet<Activos> Activos { get; set; }
-        public virtual DbSet<Asignaciones> Asignaciones { get; set; }
         public virtual DbSet<Bitacora> Bitacora { get; set; }
+        public virtual DbSet<Categorias> Categorias { get; set; }
+        public virtual DbSet<Depreciacion> Depreciacion { get; set; }
         public virtual DbSet<EstadoActivos> EstadoActivos { get; set; }
+        public virtual DbSet<EstadoUsuarios> EstadoUsuarios { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
-        public virtual DbSet<Rol_Usuarios> Rol_Usuarios { get; set; }
+        public virtual DbSet<RolUsuarios> RolUsuarios { get; set; }
+        public virtual DbSet<THAsignaciones> THAsignaciones { get; set; }
+        public virtual DbSet<THReparaciones> THReparaciones { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     }
 }

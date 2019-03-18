@@ -14,13 +14,13 @@ namespace UnitTests
             IAsignacionesDAL asignacionsDAL = new AsignacionesImplDAL();
             int count = asignacionsDAL.GetAsignaciones().Count;
 
-            Asignaciones asignacion = new Asignaciones
+            THAsignaciones asignacion = new THAsignaciones
             {
-                idActivo = 2,
-                idUsuario = 1  
+                IdActivo = 2,
+                IdUsuario = 1  
             };
             asignacionsDAL.Add(asignacion);
-            Assert.AreEqual(count + 1, asignacionsDAL.GetAsignaciones().Count);
+            Assert.AreEqual(count + 1, asignacionsDAL.GetTHAsignaciones().Count);
         }
     }
 }

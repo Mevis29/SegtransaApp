@@ -17,21 +17,30 @@ namespace Backend.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Activos()
         {
-            this.Asignaciones = new HashSet<Asignaciones>();
+            this.Depreciacion = new HashSet<Depreciacion>();
+            this.THAsignaciones = new HashSet<THAsignaciones>();
+            this.THReparaciones = new HashSet<THReparaciones>();
         }
     
-        public int idActivo { get; set; }
-        public string nombreActivo { get; set; }
-        public string descripcion { get; set; }
-        public byte[] foto { get; set; }
-        public Nullable<decimal> precioInicial { get; set; }
-        public Nullable<System.DateTime> fechaCompra { get; set; }
-        public Nullable<int> idProveedor { get; set; }
-        public Nullable<int> idEstadoActivo { get; set; }
+        public int IdActivo { get; set; }
+        public string CodActivo { get; set; }
+        public Nullable<int> Categoria { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<decimal> PrecioInicial { get; set; }
+        public Nullable<decimal> PrecioActual { get; set; }
+        public Nullable<System.DateTime> FechaCompra { get; set; }
+        public Nullable<int> Proveedor { get; set; }
+        public Nullable<int> EstadoActivo { get; set; }
+        public Nullable<int> Garantia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asignaciones> Asignaciones { get; set; }
+        public virtual ICollection<Depreciacion> Depreciacion { get; set; }
+        public virtual Categorias Categorias { get; set; }
         public virtual EstadoActivos EstadoActivos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THAsignaciones> THAsignaciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THReparaciones> THReparaciones { get; set; }
         public virtual Proveedores Proveedores { get; set; }
     }
 }

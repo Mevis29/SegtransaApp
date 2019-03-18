@@ -17,26 +17,28 @@ namespace Backend.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios()
         {
-            this.Asignaciones = new HashSet<Asignaciones>();
             this.Bitacora = new HashSet<Bitacora>();
+            this.THAsignaciones = new HashSet<THAsignaciones>();
         }
     
-        public int idUsuario { get; set; }
-        public string nombre { get; set; }
-        public string apellido1 { get; set; }
-        public string apellido2 { get; set; }
-        public string contrasena { get; set; }
-        public string telefono { get; set; }
-        public string genero { get; set; }
-        public string email { get; set; }
-        public string direccion { get; set; }
-        public Nullable<System.DateTime> fechaCreacion { get; set; }
-        public Nullable<int> idRol { get; set; }
+        public int IdUsuario { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public Nullable<int> EstadoUsuario { get; set; }
+        public Nullable<int> RolUsuario { get; set; }
+        public int Cedula { get; set; }
+        public string Contrasena { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+        public string Direccion { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public Nullable<System.DateTime> FechaUltLogin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asignaciones> Asignaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bitacora> Bitacora { get; set; }
-        public virtual Rol_Usuarios Rol_Usuarios { get; set; }
+        public virtual EstadoUsuarios EstadoUsuarios { get; set; }
+        public virtual RolUsuarios RolUsuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THAsignaciones> THAsignaciones { get; set; }
     }
 }

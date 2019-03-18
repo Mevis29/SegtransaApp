@@ -12,21 +12,18 @@ namespace Backend.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Proveedores
+    public partial class RolUsuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proveedores()
+        public RolUsuarios()
         {
-            this.Activos = new HashSet<Activos>();
+            this.Usuarios = new HashSet<Usuarios>();
         }
     
-        public int IdProveedor { get; set; }
-        public string NombreProveedor { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public string Direccion { get; set; }
+        public int IdRol { get; set; }
+        public string NombreRol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Activos> Activos { get; set; }
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

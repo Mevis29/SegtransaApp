@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.grpBoxDatosPersonales = new System.Windows.Forms.GroupBox();
-            this.cmbBoxGeneros = new System.Windows.Forms.ComboBox();
-            this.lblGenero = new System.Windows.Forms.Label();
-            this.txtApellido2 = new System.Windows.Forms.TextBox();
-            this.lblApellido2 = new System.Windows.Forms.Label();
             this.txtApellido1 = new System.Windows.Forms.TextBox();
             this.lblApellido1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -58,10 +54,6 @@
             // 
             // grpBoxDatosPersonales
             // 
-            this.grpBoxDatosPersonales.Controls.Add(this.cmbBoxGeneros);
-            this.grpBoxDatosPersonales.Controls.Add(this.lblGenero);
-            this.grpBoxDatosPersonales.Controls.Add(this.txtApellido2);
-            this.grpBoxDatosPersonales.Controls.Add(this.lblApellido2);
             this.grpBoxDatosPersonales.Controls.Add(this.txtApellido1);
             this.grpBoxDatosPersonales.Controls.Add(this.lblApellido1);
             this.grpBoxDatosPersonales.Controls.Add(this.txtNombre);
@@ -72,44 +64,6 @@
             this.grpBoxDatosPersonales.TabIndex = 1;
             this.grpBoxDatosPersonales.TabStop = false;
             this.grpBoxDatosPersonales.Text = "Datos Personales";
-            // 
-            // cmbBoxGeneros
-            // 
-            this.cmbBoxGeneros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoxGeneros.FormattingEnabled = true;
-            this.cmbBoxGeneros.Items.AddRange(new object[] {
-            "F",
-            "M",
-            "O"});
-            this.cmbBoxGeneros.Location = new System.Drawing.Point(148, 167);
-            this.cmbBoxGeneros.Name = "cmbBoxGeneros";
-            this.cmbBoxGeneros.Size = new System.Drawing.Size(145, 21);
-            this.cmbBoxGeneros.TabIndex = 7;
-            // 
-            // lblGenero
-            // 
-            this.lblGenero.AutoSize = true;
-            this.lblGenero.Location = new System.Drawing.Point(27, 170);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(45, 13);
-            this.lblGenero.TabIndex = 6;
-            this.lblGenero.Text = "Genero:";
-            // 
-            // txtApellido2
-            // 
-            this.txtApellido2.Location = new System.Drawing.Point(148, 126);
-            this.txtApellido2.Name = "txtApellido2";
-            this.txtApellido2.Size = new System.Drawing.Size(145, 20);
-            this.txtApellido2.TabIndex = 5;
-            // 
-            // lblApellido2
-            // 
-            this.lblApellido2.AutoSize = true;
-            this.lblApellido2.Location = new System.Drawing.Point(25, 129);
-            this.lblApellido2.Name = "lblApellido2";
-            this.lblApellido2.Size = new System.Drawing.Size(93, 13);
-            this.lblApellido2.TabIndex = 4;
-            this.lblApellido2.Text = "Segundo Apellido:";
             // 
             // txtApellido1
             // 
@@ -299,10 +253,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpBoxDatosPersonales;
-        private System.Windows.Forms.ComboBox cmbBoxGeneros;
-        private System.Windows.Forms.Label lblGenero;
-        private System.Windows.Forms.TextBox txtApellido2;
-        private System.Windows.Forms.Label lblApellido2;
         private System.Windows.Forms.TextBox txtApellido1;
         private System.Windows.Forms.Label lblApellido1;
         private System.Windows.Forms.TextBox txtNombre;

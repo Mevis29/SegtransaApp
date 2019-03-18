@@ -20,8 +20,8 @@ namespace Backend.Entities
             this.Activos = new HashSet<Activos>();
         }
     
-        public int idEstadoActivo { get; set; }
-        public string nombreEstado { get; set; }
+        public int IdEstadoActivo { get; set; }
+        public string NombreEstado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activos> Activos { get; set; }

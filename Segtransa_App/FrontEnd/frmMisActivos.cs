@@ -49,7 +49,7 @@ namespace FrontEnd
 
         private void frmMisActivos_Load(object sender, EventArgs e)
         {
-            List<Asignaciones> asignacionesUsuario = asignacionesDAL.GetAsignaciones(id);
+            List<THAsignaciones> asignacionesUsuario = asignacionesDAL.GetAsignaciones(id);
             List<Activos> activosUsuario = new List<Activos>();
             lvMisActivos.View = View.Details;
             lvMisActivos.Columns.Add("Id");
@@ -67,12 +67,12 @@ namespace FrontEnd
             string activo, nombreEstado, descripcion, fechaCompra, idAct, proveedor; 
             foreach (var item in asignacionesUsuario)
             {
-                activo = activosDAL.GetActivo(item.idActivo ?? default(int)).nombreActivo;
-                nombreEstado = activosDAL.GetActivo(item.idActivo ?? default(int)).EstadoActivos.nombreEstado;
-                descripcion = activosDAL.GetActivo(item.idActivo ?? default(int)).descripcion;
-                fechaCompra = activosDAL.GetActivo(item.idActivo ?? default(int)).fechaCompra.ToString();
-                idAct = activosDAL.GetActivo(item.idActivo ?? default(int)).idActivo.ToString();
-                proveedor = activosDAL.GetActivo(item.idActivo ?? default(int)).Proveedores.nombre;
+                activo = activosDAL.GetActivo(item.IdActivo ?? default(int)).CodActivo;
+                nombreEstado = activosDAL.GetActivo(item.IdActivo ?? default(int)).EstadoActivos.NombreEstado;
+                descripcion = activosDAL.GetActivo(item.IdActivo ?? default(int)).Descripcion;
+                fechaCompra = activosDAL.GetActivo(item.IdActivo ?? default(int)).FechaCompra.ToString();
+                idAct = activosDAL.GetActivo(item.IdActivo ?? default(int)).IdActivo.ToString();
+                proveedor = activosDAL.GetActivo(item.IdActivo ?? default(int)).Proveedores.NombreProveedor;
                 string[] listS = { idAct, activo, descripcion, fechaCompra, nombreEstado, proveedor };
                 lvMisActivos.Items.Add(new ListViewItem(listS));
             }

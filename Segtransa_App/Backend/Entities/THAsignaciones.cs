@@ -12,13 +12,15 @@ namespace Backend.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Bitacora
+    public partial class THAsignaciones
     {
-        public int IdBitacora { get; set; }
-        public byte[] FechaBitacora { get; set; }
-        public string DetalleBitacora { get; set; }
+        public int IdAsignacion { get; set; }
         public Nullable<int> IdUsuario { get; set; }
+        public Nullable<int> IdActivo { get; set; }
+        public Nullable<System.DateTime> FechaInicialAsignacion { get; set; }
+        public Nullable<System.DateTime> FechafinalAsignacion { get; set; }
     
+        public virtual Activos Activos { get; set; }
         public virtual Usuarios Usuarios { get; set; }
     }
 }

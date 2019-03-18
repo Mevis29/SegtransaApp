@@ -4,181 +4,285 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SEGTRANSAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="InventarioActivosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Activos">
           <Key>
-            <PropertyRef Name="idActivo" />
+            <PropertyRef Name="IdActivo" />
           </Key>
-          <Property Name="idActivo" Type="int" Nullable="false" />
-          <Property Name="nombreActivo" Type="nvarchar" MaxLength="50" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="90" />
-          <Property Name="foto" Type="image" />
-          <Property Name="precioInicial" Type="money" />
-          <Property Name="fechaCompra" Type="datetime" />
-          <Property Name="idProveedor" Type="int" />
-          <Property Name="idEstadoActivo" Type="int" />
-        </EntityType>
-        <EntityType Name="Asignaciones">
-          <Key>
-            <PropertyRef Name="idAsignacion" />
-          </Key>
-          <Property Name="idAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idUsuario" Type="int" />
-          <Property Name="idActivo" Type="int" />
-          <Property Name="fechaInicialAsignacion" Type="datetime" />
-          <Property Name="fechafinalAsignacion" Type="datetime" />
+          <Property Name="IdActivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodActivo" Type="nchar" MaxLength="50" />
+          <Property Name="Categoria" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="90" />
+          <Property Name="PrecioInicial" Type="money" />
+          <Property Name="PrecioActual" Type="money" />
+          <Property Name="FechaCompra" Type="datetime" />
+          <Property Name="Proveedor" Type="int" />
+          <Property Name="EstadoActivo" Type="int" />
+          <Property Name="Garantia" Type="int" />
         </EntityType>
         <EntityType Name="Bitacora">
           <Key>
-            <PropertyRef Name="idBitacora" />
+            <PropertyRef Name="IdBitacora" />
           </Key>
-          <Property Name="idBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fechaBitacora" Type="timestamp" StoreGeneratedPattern="Computed" />
-          <Property Name="detalleBitacora" Type="nvarchar" MaxLength="90" />
-          <Property Name="idUsuario" Type="int" />
+          <Property Name="IdBitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaBitacora" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="DetalleBitacora" Type="ntext" />
+          <Property Name="IdUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Depreciacion">
+          <Key>
+            <PropertyRef Name="IdDepreciacion" />
+          </Key>
+          <Property Name="IdDepreciacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Activo" Type="int" Nullable="false" />
+          <Property Name="FechaDepreciacion" Type="datetime" Nullable="false" />
+          <Property Name="MontoDepreciacion" Type="float" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="EstadoActivos">
           <Key>
-            <PropertyRef Name="idEstadoActivo" />
+            <PropertyRef Name="IdEstadoActivo" />
           </Key>
-          <Property Name="idEstadoActivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombreEstado" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdEstadoActivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEstado" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="EstadoUsuarios">
+          <Key>
+            <PropertyRef Name="IdEstadoUsuario" />
+          </Key>
+          <Property Name="IdEstadoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEstado" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="idProveedor" />
+            <PropertyRef Name="IdProveedor" />
           </Key>
-          <Property Name="idProveedor" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="75" />
-          <Property Name="email" Type="nvarchar" MaxLength="90" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="90" />
+          <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProveedor" Type="nvarchar" MaxLength="90" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="75" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="90" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="90" />
         </EntityType>
-        <EntityType Name="Rol_Usuarios">
+        <EntityType Name="RolUsuarios">
           <Key>
-            <PropertyRef Name="idRol" />
+            <PropertyRef Name="IdRol" />
           </Key>
-          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombreRol" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreRol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="THAsignaciones">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdActivo" Type="int" />
+          <Property Name="FechaInicialAsignacion" Type="datetime" />
+          <Property Name="FechafinalAsignacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="THReparaciones">
+          <Key>
+            <PropertyRef Name="IdReparacion" />
+          </Key>
+          <Property Name="IdReparacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdActivo" Type="int" />
+          <Property Name="FechaInicialReparacion" Type="datetime" />
+          <Property Name="FechafinalReparacion" Type="datetime" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
-            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="apellido1" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="apellido2" Type="nvarchar" MaxLength="50" />
-          <Property Name="contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="genero" Type="char" MaxLength="1" />
-          <Property Name="email" Type="nvarchar" MaxLength="75" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="75" />
-          <Property Name="fechaCreacion" Type="datetime" />
-          <Property Name="idRol" Type="int" />
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EstadoUsuario" Type="int" />
+          <Property Name="RolUsuario" Type="int" />
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="Contrasena" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="75" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="75" />
+          <Property Name="FechaCreacion" Type="date" />
+          <Property Name="FechaUltLogin" Type="datetime" />
         </EntityType>
-        <Association Name="FK_Allocations_Assets">
-          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
-          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+        <Association Name="FK_Activo_Depc">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="1" />
+          <End Role="Depreciacion" Type="Self.Depreciacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Activos">
-              <PropertyRef Name="idActivo" />
+              <PropertyRef Name="IdActivo" />
             </Principal>
-            <Dependent Role="Asignaciones">
-              <PropertyRef Name="idActivo" />
+            <Dependent Role="Depreciacion">
+              <PropertyRef Name="Activo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Allocations_Users">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+        <Association Name="FK_Categ_Act">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="idUsuario" />
+            <Principal Role="Categorias">
+              <PropertyRef Name="IdCategoria" />
             </Principal>
-            <Dependent Role="Asignaciones">
-              <PropertyRef Name="idUsuario" />
+            <Dependent Role="Activos">
+              <PropertyRef Name="Categoria" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Assets_Assets_Status">
+        <Association Name="FK_EstActivo_US">
           <End Role="EstadoActivos" Type="Self.EstadoActivos" Multiplicity="0..1" />
           <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EstadoActivos">
-              <PropertyRef Name="idEstadoActivo" />
+              <PropertyRef Name="IdEstadoActivo" />
             </Principal>
             <Dependent Role="Activos">
-              <PropertyRef Name="idEstadoActivo" />
+              <PropertyRef Name="EstadoActivo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Assets_Suppliers">
-          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
-          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+        <Association Name="FK_EstUsuario_US">
+          <End Role="EstadoUsuarios" Type="Self.EstadoUsuarios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Proveedores">
-              <PropertyRef Name="idProveedor" />
+            <Principal Role="EstadoUsuarios">
+              <PropertyRef Name="IdEstadoUsuario" />
             </Principal>
-            <Dependent Role="Activos">
-              <PropertyRef Name="idProveedor" />
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="EstadoUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Bitacora_Users">
+        <Association Name="FK_IdActivo_THA">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="IdActivo" />
+            </Principal>
+            <Dependent Role="THAsignaciones">
+              <PropertyRef Name="IdActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdActivo_THR">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="THReparaciones" Type="Self.THReparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="IdActivo" />
+            </Principal>
+            <Dependent Role="THReparaciones">
+              <PropertyRef Name="IdActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdUsuario_Bi">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
-              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Bitacora">
-              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_Rol_Users">
-          <End Role="Rol_Usuarios" Type="Self.Rol_Usuarios" Multiplicity="0..1" />
+        <Association Name="FK_IdUsuario_THA">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="THAsignaciones">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proved_Act">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="Proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_US">
+          <End Role="RolUsuarios" Type="Self.RolUsuarios" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Rol_Usuarios">
-              <PropertyRef Name="idRol" />
+            <Principal Role="RolUsuarios">
+              <PropertyRef Name="IdRol" />
             </Principal>
             <Dependent Role="Usuarios">
-              <PropertyRef Name="idRol" />
+              <PropertyRef Name="RolUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SEGTRANSAModelStoreContainer">
+        <EntityContainer Name="InventarioActivosModelStoreContainer">
           <EntitySet Name="Activos" EntityType="Self.Activos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Depreciacion" EntityType="Self.Depreciacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EstadoActivos" EntityType="Self.EstadoActivos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoUsuarios" EntityType="Self.EstadoUsuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rol_Usuarios" EntityType="Self.Rol_Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolUsuarios" EntityType="Self.RolUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THAsignaciones" EntityType="Self.THAsignaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="THReparaciones" EntityType="Self.THReparaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Allocations_Assets" Association="Self.FK_Allocations_Assets">
+          <AssociationSet Name="FK_Activo_Depc" Association="Self.FK_Activo_Depc">
             <End Role="Activos" EntitySet="Activos" />
-            <End Role="Asignaciones" EntitySet="Asignaciones" />
+            <End Role="Depreciacion" EntitySet="Depreciacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Allocations_Users" Association="Self.FK_Allocations_Users">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Asignaciones" EntitySet="Asignaciones" />
+          <AssociationSet Name="FK_Categ_Act" Association="Self.FK_Categ_Act">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Activos" EntitySet="Activos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Assets_Assets_Status" Association="Self.FK_Assets_Assets_Status">
+          <AssociationSet Name="FK_EstActivo_US" Association="Self.FK_EstActivo_US">
             <End Role="EstadoActivos" EntitySet="EstadoActivos" />
             <End Role="Activos" EntitySet="Activos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Assets_Suppliers" Association="Self.FK_Assets_Suppliers">
-            <End Role="Proveedores" EntitySet="Proveedores" />
-            <End Role="Activos" EntitySet="Activos" />
+          <AssociationSet Name="FK_EstUsuario_US" Association="Self.FK_EstUsuario_US">
+            <End Role="EstadoUsuarios" EntitySet="EstadoUsuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
-          <AssociationSet Name="FK_Bitacora_Users" Association="Self.FK_Bitacora_Users">
+          <AssociationSet Name="FK_IdActivo_THA" Association="Self.FK_IdActivo_THA">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="THAsignaciones" EntitySet="THAsignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdActivo_THR" Association="Self.FK_IdActivo_THR">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="THReparaciones" EntitySet="THReparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdUsuario_Bi" Association="Self.FK_IdUsuario_Bi">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Bitacora" EntitySet="Bitacora" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_Rol_Users" Association="Self.FK_Users_Rol_Users">
-            <End Role="Rol_Usuarios" EntitySet="Rol_Usuarios" />
+          <AssociationSet Name="FK_IdUsuario_THA" Association="Self.FK_IdUsuario_THA">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="THAsignaciones" EntitySet="THAsignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proved_Act" Association="Self.FK_Proved_Act">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_US" Association="Self.FK_RolUsuario_US">
+            <End Role="RolUsuarios" EntitySet="RolUsuarios" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
@@ -186,194 +290,306 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SEGTRANSAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="InventarioActivosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Activos">
           <Key>
-            <PropertyRef Name="idActivo" />
+            <PropertyRef Name="IdActivo" />
           </Key>
-          <Property Name="idActivo" Type="Int32" Nullable="false" />
-          <Property Name="nombreActivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="descripcion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="precioInicial" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fechaCompra" Type="DateTime" Precision="3" />
-          <Property Name="idProveedor" Type="Int32" />
-          <Property Name="idEstadoActivo" Type="Int32" />
-          <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Allocations_Assets" FromRole="Activos" ToRole="Asignaciones" />
-          <NavigationProperty Name="EstadoActivos" Relationship="Self.FK_Assets_Assets_Status" FromRole="Activos" ToRole="EstadoActivos" />
-          <NavigationProperty Name="Proveedores" Relationship="Self.FK_Assets_Suppliers" FromRole="Activos" ToRole="Proveedores" />
-        </EntityType>
-        <EntityType Name="Asignaciones">
-          <Key>
-            <PropertyRef Name="idAsignacion" />
-          </Key>
-          <Property Name="idAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idUsuario" Type="Int32" />
-          <Property Name="idActivo" Type="Int32" />
-          <Property Name="fechaInicialAsignacion" Type="DateTime" Precision="3" />
-          <Property Name="fechafinalAsignacion" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Activos" Relationship="Self.FK_Allocations_Assets" FromRole="Asignaciones" ToRole="Activos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Allocations_Users" FromRole="Asignaciones" ToRole="Usuarios" />
+          <Property Name="IdActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodActivo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Categoria" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="PrecioInicial" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PrecioActual" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FechaCompra" Type="DateTime" Precision="3" />
+          <Property Name="Proveedor" Type="Int32" />
+          <Property Name="EstadoActivo" Type="Int32" />
+          <Property Name="Garantia" Type="Int32" />
+          <NavigationProperty Name="Depreciacion" Relationship="Self.FK_Activo_Depc" FromRole="Activos" ToRole="Depreciacion" />
+          <NavigationProperty Name="Categorias" Relationship="Self.FK_Categ_Act" FromRole="Activos" ToRole="Categorias" />
+          <NavigationProperty Name="EstadoActivos" Relationship="Self.FK_EstActivo_US" FromRole="Activos" ToRole="EstadoActivos" />
+          <NavigationProperty Name="THAsignaciones" Relationship="Self.FK_IdActivo_THA" FromRole="Activos" ToRole="THAsignaciones" />
+          <NavigationProperty Name="THReparaciones" Relationship="Self.FK_IdActivo_THR" FromRole="Activos" ToRole="THReparaciones" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK_Proved_Act" FromRole="Activos" ToRole="Proveedores" />
         </EntityType>
         <EntityType Name="Bitacora">
           <Key>
-            <PropertyRef Name="idBitacora" />
+            <PropertyRef Name="IdBitacora" />
           </Key>
-          <Property Name="idBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fechaBitacora" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="detalleBitacora" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="idUsuario" Type="Int32" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Bitacora_Users" FromRole="Bitacora" ToRole="Usuarios" />
+          <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaBitacora" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="DetalleBitacora" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_IdUsuario_Bi" FromRole="Bitacora" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Categ_Act" FromRole="Categorias" ToRole="Activos" />
+        </EntityType>
+        <EntityType Name="Depreciacion">
+          <Key>
+            <PropertyRef Name="IdDepreciacion" />
+          </Key>
+          <Property Name="IdDepreciacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Activo" Type="Int32" Nullable="false" />
+          <Property Name="FechaDepreciacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MontoDepreciacion" Type="Double" Nullable="false" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Activo_Depc" FromRole="Depreciacion" ToRole="Activos" />
         </EntityType>
         <EntityType Name="EstadoActivos">
           <Key>
-            <PropertyRef Name="idEstadoActivo" />
+            <PropertyRef Name="IdEstadoActivo" />
           </Key>
-          <Property Name="idEstadoActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreEstado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Activos" Relationship="Self.FK_Assets_Assets_Status" FromRole="EstadoActivos" ToRole="Activos" />
+          <Property Name="IdEstadoActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEstado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_EstActivo_US" FromRole="EstadoActivos" ToRole="Activos" />
+        </EntityType>
+        <EntityType Name="EstadoUsuarios">
+          <Key>
+            <PropertyRef Name="IdEstadoUsuario" />
+          </Key>
+          <Property Name="IdEstadoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEstado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_EstUsuario_US" FromRole="EstadoUsuarios" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
-            <PropertyRef Name="idProveedor" />
+            <PropertyRef Name="IdProveedor" />
           </Key>
-          <Property Name="idProveedor" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="telefono" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Name="email" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <Property Name="direccion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Activos" Relationship="Self.FK_Assets_Suppliers" FromRole="Proveedores" ToRole="Activos" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProveedor" Type="String" MaxLength="90" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_Proved_Act" FromRole="Proveedores" ToRole="Activos" />
         </EntityType>
-        <EntityType Name="Rol_Usuarios">
+        <EntityType Name="RolUsuarios">
           <Key>
-            <PropertyRef Name="idRol" />
+            <PropertyRef Name="IdRol" />
           </Key>
-          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Users_Rol_Users" FromRole="Rol_Usuarios" ToRole="Usuarios" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_RolUsuario_US" FromRole="RolUsuarios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="THAsignaciones">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdActivo" Type="Int32" />
+          <Property Name="FechaInicialAsignacion" Type="DateTime" Precision="3" />
+          <Property Name="FechafinalAsignacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_IdActivo_THA" FromRole="THAsignaciones" ToRole="Activos" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_IdUsuario_THA" FromRole="THAsignaciones" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="THReparaciones">
+          <Key>
+            <PropertyRef Name="IdReparacion" />
+          </Key>
+          <Property Name="IdReparacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdActivo" Type="Int32" />
+          <Property Name="FechaInicialReparacion" Type="DateTime" Precision="3" />
+          <Property Name="FechafinalReparacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Activos" Relationship="Self.FK_IdActivo_THR" FromRole="THReparaciones" ToRole="Activos" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
-            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="IdUsuario" />
           </Key>
-          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Name="direccion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
-          <Property Name="fechaCreacion" Type="DateTime" Precision="3" />
-          <Property Name="idRol" Type="Int32" />
-          <NavigationProperty Name="Asignaciones" Relationship="Self.FK_Allocations_Users" FromRole="Usuarios" ToRole="Asignaciones" />
-          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Users" FromRole="Usuarios" ToRole="Bitacora" />
-          <NavigationProperty Name="Rol_Usuarios" Relationship="Self.FK_Users_Rol_Users" FromRole="Usuarios" ToRole="Rol_Usuarios" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EstadoUsuario" Type="Int32" />
+          <Property Name="RolUsuario" Type="Int32" />
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="FechaUltLogin" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_IdUsuario_Bi" FromRole="Usuarios" ToRole="Bitacora" />
+          <NavigationProperty Name="EstadoUsuarios" Relationship="Self.FK_EstUsuario_US" FromRole="Usuarios" ToRole="EstadoUsuarios" />
+          <NavigationProperty Name="RolUsuarios" Relationship="Self.FK_RolUsuario_US" FromRole="Usuarios" ToRole="RolUsuarios" />
+          <NavigationProperty Name="THAsignaciones" Relationship="Self.FK_IdUsuario_THA" FromRole="Usuarios" ToRole="THAsignaciones" />
         </EntityType>
-        <Association Name="FK_Allocations_Assets">
-          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
-          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+        <Association Name="FK_Activo_Depc">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="1" />
+          <End Role="Depreciacion" Type="Self.Depreciacion" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Activos">
-              <PropertyRef Name="idActivo" />
+              <PropertyRef Name="IdActivo" />
             </Principal>
-            <Dependent Role="Asignaciones">
-              <PropertyRef Name="idActivo" />
+            <Dependent Role="Depreciacion">
+              <PropertyRef Name="Activo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Assets_Assets_Status">
+        <Association Name="FK_Categ_Act">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Activos">
+              <PropertyRef Name="Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EstActivo_US">
           <End Role="EstadoActivos" Type="Self.EstadoActivos" Multiplicity="0..1" />
           <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EstadoActivos">
-              <PropertyRef Name="idEstadoActivo" />
+              <PropertyRef Name="IdEstadoActivo" />
             </Principal>
             <Dependent Role="Activos">
-              <PropertyRef Name="idEstadoActivo" />
+              <PropertyRef Name="EstadoActivo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Assets_Suppliers">
+        <Association Name="FK_IdActivo_THA">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="IdActivo" />
+            </Principal>
+            <Dependent Role="THAsignaciones">
+              <PropertyRef Name="IdActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdActivo_THR">
+          <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+          <End Role="THReparaciones" Type="Self.THReparaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activos">
+              <PropertyRef Name="IdActivo" />
+            </Principal>
+            <Dependent Role="THReparaciones">
+              <PropertyRef Name="IdActivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Proved_Act">
           <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
           <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Proveedores">
-              <PropertyRef Name="idProveedor" />
+              <PropertyRef Name="IdProveedor" />
             </Principal>
             <Dependent Role="Activos">
-              <PropertyRef Name="idProveedor" />
+              <PropertyRef Name="Proveedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Allocations_Users">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuarios">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="Asignaciones">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Bitacora_Users">
+        <Association Name="FK_IdUsuario_Bi">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
           <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
-              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="IdUsuario" />
             </Principal>
             <Dependent Role="Bitacora">
-              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Users_Rol_Users">
-          <End Role="Rol_Usuarios" Type="Self.Rol_Usuarios" Multiplicity="0..1" />
+        <Association Name="FK_EstUsuario_US">
+          <End Role="EstadoUsuarios" Type="Self.EstadoUsuarios" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Rol_Usuarios">
-              <PropertyRef Name="idRol" />
+            <Principal Role="EstadoUsuarios">
+              <PropertyRef Name="IdEstadoUsuario" />
             </Principal>
             <Dependent Role="Usuarios">
-              <PropertyRef Name="idRol" />
+              <PropertyRef Name="EstadoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolUsuario_US">
+          <End Role="RolUsuarios" Type="Self.RolUsuarios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolUsuarios">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="RolUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IdUsuario_THA">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="THAsignaciones">
+              <PropertyRef Name="IdUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Activos" EntityType="Self.Activos" />
-          <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" />
           <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+          <EntitySet Name="Depreciacion" EntityType="Self.Depreciacion" />
           <EntitySet Name="EstadoActivos" EntityType="Self.EstadoActivos" />
+          <EntitySet Name="EstadoUsuarios" EntityType="Self.EstadoUsuarios" />
           <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
-          <EntitySet Name="Rol_Usuarios" EntityType="Self.Rol_Usuarios" />
+          <EntitySet Name="RolUsuarios" EntityType="Self.RolUsuarios" />
+          <EntitySet Name="THAsignaciones" EntityType="Self.THAsignaciones" />
+          <EntitySet Name="THReparaciones" EntityType="Self.THReparaciones" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <AssociationSet Name="FK_Allocations_Assets" Association="Self.FK_Allocations_Assets">
+          <AssociationSet Name="FK_Activo_Depc" Association="Self.FK_Activo_Depc">
             <End Role="Activos" EntitySet="Activos" />
-            <End Role="Asignaciones" EntitySet="Asignaciones" />
+            <End Role="Depreciacion" EntitySet="Depreciacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Assets_Assets_Status" Association="Self.FK_Assets_Assets_Status">
+          <AssociationSet Name="FK_Categ_Act" Association="Self.FK_Categ_Act">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Activos" EntitySet="Activos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EstActivo_US" Association="Self.FK_EstActivo_US">
             <End Role="EstadoActivos" EntitySet="EstadoActivos" />
             <End Role="Activos" EntitySet="Activos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Assets_Suppliers" Association="Self.FK_Assets_Suppliers">
+          <AssociationSet Name="FK_IdActivo_THA" Association="Self.FK_IdActivo_THA">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="THAsignaciones" EntitySet="THAsignaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdActivo_THR" Association="Self.FK_IdActivo_THR">
+            <End Role="Activos" EntitySet="Activos" />
+            <End Role="THReparaciones" EntitySet="THReparaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proved_Act" Association="Self.FK_Proved_Act">
             <End Role="Proveedores" EntitySet="Proveedores" />
             <End Role="Activos" EntitySet="Activos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Allocations_Users" Association="Self.FK_Allocations_Users">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Asignaciones" EntitySet="Asignaciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Bitacora_Users" Association="Self.FK_Bitacora_Users">
+          <AssociationSet Name="FK_IdUsuario_Bi" Association="Self.FK_IdUsuario_Bi">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Bitacora" EntitySet="Bitacora" />
           </AssociationSet>
-          <AssociationSet Name="FK_Users_Rol_Users" Association="Self.FK_Users_Rol_Users">
-            <End Role="Rol_Usuarios" EntitySet="Rol_Usuarios" />
+          <AssociationSet Name="FK_EstUsuario_US" Association="Self.FK_EstUsuario_US">
+            <End Role="EstadoUsuarios" EntitySet="EstadoUsuarios" />
             <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolUsuario_US" Association="Self.FK_RolUsuario_US">
+            <End Role="RolUsuarios" EntitySet="RolUsuarios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IdUsuario_THA" Association="Self.FK_IdUsuario_THA">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="THAsignaciones" EntitySet="THAsignaciones" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -381,83 +597,123 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SEGTRANSAModelStoreContainer" CdmEntityContainer="BDContext">
+        <EntityContainerMapping StorageEntityContainer="InventarioActivosModelStoreContainer" CdmEntityContainer="BDContext">
           <EntitySetMapping Name="Activos">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Activos">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Activos">
               <MappingFragment StoreEntitySet="Activos">
-                <ScalarProperty Name="idActivo" ColumnName="idActivo" />
-                <ScalarProperty Name="nombreActivo" ColumnName="nombreActivo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="foto" ColumnName="foto" />
-                <ScalarProperty Name="precioInicial" ColumnName="precioInicial" />
-                <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-                <ScalarProperty Name="idEstadoActivo" ColumnName="idEstadoActivo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Asignaciones">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Asignaciones">
-              <MappingFragment StoreEntitySet="Asignaciones">
-                <ScalarProperty Name="idAsignacion" ColumnName="idAsignacion" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="idActivo" ColumnName="idActivo" />
-                <ScalarProperty Name="fechaInicialAsignacion" ColumnName="fechaInicialAsignacion" />
-                <ScalarProperty Name="fechafinalAsignacion" ColumnName="fechafinalAsignacion" />
+                <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+                <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+                <ScalarProperty Name="PrecioActual" ColumnName="PrecioActual" />
+                <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+                <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+                <ScalarProperty Name="EstadoActivo" ColumnName="EstadoActivo" />
+                <ScalarProperty Name="Garantia" ColumnName="Garantia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Bitacora">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Bitacora">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Bitacora">
               <MappingFragment StoreEntitySet="Bitacora">
-                <ScalarProperty Name="idBitacora" ColumnName="idBitacora" />
-                <ScalarProperty Name="fechaBitacora" ColumnName="fechaBitacora" />
-                <ScalarProperty Name="detalleBitacora" ColumnName="detalleBitacora" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+                <ScalarProperty Name="FechaBitacora" ColumnName="FechaBitacora" />
+                <ScalarProperty Name="DetalleBitacora" ColumnName="DetalleBitacora" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Depreciacion">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Depreciacion">
+              <MappingFragment StoreEntitySet="Depreciacion">
+                <ScalarProperty Name="IdDepreciacion" ColumnName="IdDepreciacion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaDepreciacion" ColumnName="FechaDepreciacion" />
+                <ScalarProperty Name="MontoDepreciacion" ColumnName="MontoDepreciacion" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EstadoActivos">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.EstadoActivos">
+            <EntityTypeMapping TypeName="InventarioActivosModel.EstadoActivos">
               <MappingFragment StoreEntitySet="EstadoActivos">
-                <ScalarProperty Name="idEstadoActivo" ColumnName="idEstadoActivo" />
-                <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+                <ScalarProperty Name="IdEstadoActivo" ColumnName="IdEstadoActivo" />
+                <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoUsuarios">
+            <EntityTypeMapping TypeName="InventarioActivosModel.EstadoUsuarios">
+              <MappingFragment StoreEntitySet="EstadoUsuarios">
+                <ScalarProperty Name="IdEstadoUsuario" ColumnName="IdEstadoUsuario" />
+                <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proveedores">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Proveedores">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Proveedores">
               <MappingFragment StoreEntitySet="Proveedores">
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rol_Usuarios">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Rol_Usuarios">
-              <MappingFragment StoreEntitySet="Rol_Usuarios">
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
-                <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+          <EntitySetMapping Name="RolUsuarios">
+            <EntityTypeMapping TypeName="InventarioActivosModel.RolUsuarios">
+              <MappingFragment StoreEntitySet="RolUsuarios">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THAsignaciones">
+            <EntityTypeMapping TypeName="InventarioActivosModel.THAsignaciones">
+              <MappingFragment StoreEntitySet="THAsignaciones">
+                <ScalarProperty Name="IdAsignacion" ColumnName="IdAsignacion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+                <ScalarProperty Name="FechaInicialAsignacion" ColumnName="FechaInicialAsignacion" />
+                <ScalarProperty Name="FechafinalAsignacion" ColumnName="FechafinalAsignacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THReparaciones">
+            <EntityTypeMapping TypeName="InventarioActivosModel.THReparaciones">
+              <MappingFragment StoreEntitySet="THReparaciones">
+                <ScalarProperty Name="IdReparacion" ColumnName="IdReparacion" />
+                <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+                <ScalarProperty Name="FechaInicialReparacion" ColumnName="FechaInicialReparacion" />
+                <ScalarProperty Name="FechafinalReparacion" ColumnName="FechafinalReparacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="SEGTRANSAModel.Usuarios">
+            <EntityTypeMapping TypeName="InventarioActivosModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="genero" ColumnName="genero" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
-                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
+                <ScalarProperty Name="RolUsuario" ColumnName="RolUsuario" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaUltLogin" ColumnName="FechaUltLogin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

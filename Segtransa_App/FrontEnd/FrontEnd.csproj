@@ -181,6 +181,11 @@
     <Compile Include="frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="SEGTRANSADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SEGTRANSADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SEGTRANSADataSetActivo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SEGTRANSADataSet.xsc">
+      <DependentUpon>SEGTRANSADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SEGTRANSADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SEGTRANSADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SEGTRANSADataSet.xss">
+      <DependentUpon>SEGTRANSADataSet.xsd</DependentUpon>
+    </None>
     <None Include="SEGTRANSADataSetActivo.xsc">
       <DependentUpon>SEGTRANSADataSetActivo.xsd</DependentUpon>
     </None>

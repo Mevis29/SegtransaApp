@@ -66,40 +66,52 @@
     <Compile Include="DAL\IEstadoActivosDAL.cs" />
     <Compile Include="DAL\IUsuariosDAL.cs" />
     <Compile Include="Entities\Activos.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Asignaciones.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Bitacora.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Categorias.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Depreciacion.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\EstadoActivos.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EstadoUsuarios.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Proveedores.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Rol_Usuarios.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+    <Compile Include="Entities\RolUsuarios.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\SEGTRANSA.Context.cs">
+    <Compile Include="Entities\Segtransa.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SEGTRANSA.Context.tt</DependentUpon>
+      <DependentUpon>Segtransa.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\SEGTRANSA.cs">
+    <Compile Include="Entities\Segtransa.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\SEGTRANSA.Designer.cs">
+    <Compile Include="Entities\Segtransa.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SEGTRANSA.edmx</DependentUpon>
+      <DependentUpon>Segtransa.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\THAsignaciones.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\THReparaciones.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Usuarios.cs">
-      <DependentUpon>SEGTRANSA.tt</DependentUpon>
+      <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -107,28 +119,26 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Entities\SEGTRANSA.edmx">
+    <EntityDeploy Include="Entities\Segtransa.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SEGTRANSA.Designer.cs</LastGenOutput>
+      <LastGenOutput>Segtransa.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Entities\SEGTRANSA.edmx.diagram">
-      <DependentUpon>SEGTRANSA.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="Entities\Segtransa.edmx.diagram">
+      <DependentUpon>Segtransa.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\SEGTRANSA.Context.tt">
+    <Content Include="Entities\Segtransa.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SEGTRANSA.edmx</DependentUpon>
-      <LastGenOutput>SEGTRANSA.Context.cs</LastGenOutput>
+      <DependentUpon>Segtransa.edmx</DependentUpon>
+      <LastGenOutput>Segtransa.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\SEGTRANSA.tt">
+    <Content Include="Entities\Segtransa.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SEGTRANSA.edmx</DependentUpon>
-      <LastGenOutput>SEGTRANSA.cs</LastGenOutput>
+      <DependentUpon>Segtransa.edmx</DependentUpon>
+      <LastGenOutput>Segtransa.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

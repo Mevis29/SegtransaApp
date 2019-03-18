@@ -40,13 +40,13 @@ namespace FrontEnd
         {
             try
             {
-                int valProveedor = activo.idProveedor.Value;
-                lblValNombre.Text = activo.nombreActivo;
-                lblValPrcIni.Text = activo.precioInicial.ToString();
-                lblValProveedor.Text = proveedoresDAL.GetProveedor(valProveedor).nombre;
-                lblValDesc.Text = activo.descripcion;
-                valProveedor = estadoActivosDAL.GetEstadoActivo(activo.idEstadoActivo.Value).idEstadoActivo;
-                lblValStt.Text = estadoActivosDAL.GetEstadoActivo(valProveedor).nombreEstado;
+                int valProveedor = activo.Proveedor.Value;
+                lblValNombre.Text = activo.CodActivo;
+                lblValPrcIni.Text = activo.PrecioInicial.ToString();
+                lblValProveedor.Text = proveedoresDAL.GetProveedor(valProveedor).NombreProveedor;
+                lblValDesc.Text = activo.Descripcion;
+                valProveedor = estadoActivosDAL.GetEstadoActivo(activo.EstadoActivo.Value).IdEstadoActivo;
+                lblValStt.Text = estadoActivosDAL.GetEstadoActivo(valProveedor).NombreEstado;
                 //activo.idProveedor int? to int, look for method to parse
             } catch (System.InvalidOperationException ) {
                 MessageBox.Show("No se ha encontrado un activo con el identificador ingresado.");
