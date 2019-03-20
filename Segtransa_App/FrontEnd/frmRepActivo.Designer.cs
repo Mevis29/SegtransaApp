@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.ActivosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SEGTRANSADataSetActivo = new FrontEnd.SEGTRANSADataSetActivo();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -51,14 +51,14 @@
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "DataSourceActivo";
-            reportDataSource2.Value = this.ActivosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "DataSourceActivo";
+            reportDataSource1.Value = this.ActivosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FrontEnd.Reportes.rptActivo.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(13, 15);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(704, 370);
+            this.reportViewer1.Size = new System.Drawing.Size(671, 370);
             this.reportViewer1.TabIndex = 0;
             // 
             // ActivosTableAdapter
@@ -79,10 +79,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmRepActivo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Activos";
             this.Load += new System.EventHandler(this.frmRepActivo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ActivosBindingSource)).EndInit();

@@ -151,7 +151,7 @@
             this.grpBoxDatosContacto.Controls.Add(this.lblEmail);
             this.grpBoxDatosContacto.Controls.Add(this.txtTelefono);
             this.grpBoxDatosContacto.Controls.Add(this.lblTelefono);
-            this.grpBoxDatosContacto.Location = new System.Drawing.Point(422, 27);
+            this.grpBoxDatosContacto.Location = new System.Drawing.Point(369, 27);
             this.grpBoxDatosContacto.Name = "grpBoxDatosContacto";
             this.grpBoxDatosContacto.Size = new System.Drawing.Size(330, 226);
             this.grpBoxDatosContacto.TabIndex = 1;
@@ -277,13 +277,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.grpBoxAcceso);
             this.Controls.Add(this.grpBoxDatosContacto);
             this.Controls.Add(this.grpBoxDatosPersonales);
             this.Name = "frmUsuariosAgrega";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Nuevo Usuario";
             this.Load += new System.EventHandler(this.frmUsuariosAgrega_Load);
             this.grpBoxDatosPersonales.ResumeLayout(false);

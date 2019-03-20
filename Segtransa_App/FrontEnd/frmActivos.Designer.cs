@@ -49,7 +49,7 @@ namespace FrontEnd
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(758, 421);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(58, 24);
             this.btnBack.TabIndex = 7;
@@ -59,7 +59,7 @@ namespace FrontEnd
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(20, 420);
+            this.button1.Location = new System.Drawing.Point(31, 385);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -79,7 +79,7 @@ namespace FrontEnd
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(243, 420);
+            this.button2.Location = new System.Drawing.Point(254, 385);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -89,7 +89,7 @@ namespace FrontEnd
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(132, 420);
+            this.btnBuscar.Location = new System.Drawing.Point(143, 385);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 13;
@@ -112,9 +112,9 @@ namespace FrontEnd
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(20, 42);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(812, 370);
+            this.listView1.Size = new System.Drawing.Size(812, 316);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 14;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -128,12 +128,12 @@ namespace FrontEnd
             // nombreActivo
             // 
             this.nombreActivo.Text = "Nombre";
-            this.nombreActivo.Width = 163;
+            this.nombreActivo.Width = 120;
             // 
             // descripcion
             // 
             this.descripcion.Text = "Descripcion";
-            this.descripcion.Width = 220;
+            this.descripcion.Width = 160;
             // 
             // precioInicial
             // 
@@ -157,7 +157,7 @@ namespace FrontEnd
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(352, 421);
+            this.btnActualizar.Location = new System.Drawing.Point(363, 386);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 15;
@@ -177,8 +177,9 @@ namespace FrontEnd
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBack);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmActivos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmActivos";
             this.ResumeLayout(false);
             this.PerformLayout();

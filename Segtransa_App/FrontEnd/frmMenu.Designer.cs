@@ -48,7 +48,7 @@ namespace FrontEnd
             // btnMisActivos
             // 
             this.btnMisActivos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnMisActivos.Location = new System.Drawing.Point(183, 33);
+            this.btnMisActivos.Location = new System.Drawing.Point(20, 32);
             this.btnMisActivos.Margin = new System.Windows.Forms.Padding(2);
             this.btnMisActivos.Name = "btnMisActivos";
             this.btnMisActivos.Size = new System.Drawing.Size(126, 43);
@@ -60,7 +60,7 @@ namespace FrontEnd
             // btnMisDatos
             // 
             this.btnMisDatos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnMisDatos.Location = new System.Drawing.Point(183, 101);
+            this.btnMisDatos.Location = new System.Drawing.Point(20, 101);
             this.btnMisDatos.Margin = new System.Windows.Forms.Padding(2);
             this.btnMisDatos.Name = "btnMisDatos";
             this.btnMisDatos.Size = new System.Drawing.Size(126, 42);
@@ -72,10 +72,10 @@ namespace FrontEnd
             // btnReportes
             // 
             this.btnReportes.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnReportes.Location = new System.Drawing.Point(255, 171);
+            this.btnReportes.Location = new System.Drawing.Point(20, 317);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(2);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(178, 46);
+            this.btnReportes.Size = new System.Drawing.Size(126, 46);
             this.btnReportes.TabIndex = 2;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@ namespace FrontEnd
             // btnUsuarios
             // 
             this.btnUsuarios.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnUsuarios.Location = new System.Drawing.Point(426, 33);
+            this.btnUsuarios.Location = new System.Drawing.Point(20, 173);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(126, 42);
@@ -96,7 +96,7 @@ namespace FrontEnd
             // btnActivos
             // 
             this.btnActivos.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnActivos.Location = new System.Drawing.Point(426, 101);
+            this.btnActivos.Location = new System.Drawing.Point(20, 245);
             this.btnActivos.Margin = new System.Windows.Forms.Padding(2);
             this.btnActivos.Name = "btnActivos";
             this.btnActivos.Size = new System.Drawing.Size(126, 42);
@@ -123,11 +123,11 @@ namespace FrontEnd
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox1.Location = new System.Drawing.Point(16, 79);
+            this.groupBox1.Location = new System.Drawing.Point(208, 88);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(675, 100);
+            this.groupBox1.Size = new System.Drawing.Size(483, 100);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bienvenido";
@@ -136,7 +136,7 @@ namespace FrontEnd
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(561, 18);
+            this.lblFecha.Location = new System.Drawing.Point(406, 18);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(47, 17);
@@ -162,11 +162,11 @@ namespace FrontEnd
             this.groupBox2.Controls.Add(this.btnActivos);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox2.Location = new System.Drawing.Point(16, 193);
+            this.groupBox2.Location = new System.Drawing.Point(16, 79);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(675, 240);
+            this.groupBox2.Size = new System.Drawing.Size(164, 422);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Acciones";
@@ -193,6 +193,7 @@ namespace FrontEnd
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMenuReporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.groupBox1.ResumeLayout(false);

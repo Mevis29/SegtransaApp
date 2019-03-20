@@ -74,6 +74,9 @@ namespace FrontEnd
                             user = usuariosDal.GetUsuario(id);                            
                             /*showInfo("Bienvenido " + user.nombre);*/
                             frmMenuReporte mainMenu = new frmMenuReporte(user, this);
+                            // mvs
+                            mainMenu.StartPosition = FormStartPosition.CenterScreen;
+                            //
                             mainMenu.Show();
                             tbxUserId.Clear();
                             tbxPassword.Clear();

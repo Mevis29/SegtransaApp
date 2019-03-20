@@ -102,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 246);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.btnRepUsuario);
             this.Controls.Add(this.btnRepRolUsuario);
             this.Controls.Add(this.btnRepProveedor);
@@ -111,6 +111,7 @@
             this.Controls.Add(this.btnBack);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.frmReportes_Load);
             this.ResumeLayout(false);

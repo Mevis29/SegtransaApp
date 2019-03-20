@@ -79,13 +79,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 231);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.txbClave);
             this.Controls.Add(this.btnActualizarClave);
             this.Controls.Add(this.lvMisDatos);
             this.Controls.Add(this.btnBack);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMisDatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisDatos";
             this.Load += new System.EventHandler(this.frmMisDatos_Load);
             this.ResumeLayout(false);

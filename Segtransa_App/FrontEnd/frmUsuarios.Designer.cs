@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnModifyUser);
             this.Controls.Add(this.lstUsuarios);
@@ -108,6 +108,7 @@
             this.Controls.Add(this.btnBack);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.ResumeLayout(false);

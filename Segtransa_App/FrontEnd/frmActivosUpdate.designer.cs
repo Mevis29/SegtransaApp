@@ -194,11 +194,11 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "Proveedor:";
             // 
-            // frmUpdateActivo
+            // frmActivosUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 403);
+            this.ClientSize = new System.Drawing.Size(711, 515);
             this.Controls.Add(this.cmbBoxStt);
             this.Controls.Add(this.dateCompra);
             this.Controls.Add(this.txtNombre);
@@ -216,7 +216,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.button1);
-            this.Name = "frmUpdateActivo";
+            this.Name = "frmActivosUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUpdateActivo";
             this.ResumeLayout(false);
             this.PerformLayout();
