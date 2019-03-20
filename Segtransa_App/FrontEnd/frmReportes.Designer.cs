@@ -34,14 +34,16 @@
             this.btnRepProveedor = new System.Windows.Forms.Button();
             this.btnRepRolUsuario = new System.Windows.Forms.Button();
             this.btnRepUsuario = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(206, 211);
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(571, 436);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(58, 24);
+            this.btnBack.Size = new System.Drawing.Size(103, 32);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Atras";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -49,10 +51,11 @@
             // 
             // btnRepActivo
             // 
-            this.btnRepActivo.Location = new System.Drawing.Point(54, 33);
+            this.btnRepActivo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepActivo.Location = new System.Drawing.Point(180, 153);
             this.btnRepActivo.Margin = new System.Windows.Forms.Padding(2);
             this.btnRepActivo.Name = "btnRepActivo";
-            this.btnRepActivo.Size = new System.Drawing.Size(75, 23);
+            this.btnRepActivo.Size = new System.Drawing.Size(136, 40);
             this.btnRepActivo.TabIndex = 1;
             this.btnRepActivo.Text = "Activos";
             this.btnRepActivo.UseVisualStyleBackColor = true;
@@ -60,9 +63,10 @@
             // 
             // btnRepBitacora
             // 
-            this.btnRepBitacora.Location = new System.Drawing.Point(54, 77);
+            this.btnRepBitacora.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepBitacora.Location = new System.Drawing.Point(180, 226);
             this.btnRepBitacora.Name = "btnRepBitacora";
-            this.btnRepBitacora.Size = new System.Drawing.Size(75, 23);
+            this.btnRepBitacora.Size = new System.Drawing.Size(136, 47);
             this.btnRepBitacora.TabIndex = 2;
             this.btnRepBitacora.Text = "Bitácora";
             this.btnRepBitacora.UseVisualStyleBackColor = true;
@@ -70,9 +74,10 @@
             // 
             // btnRepProveedor
             // 
-            this.btnRepProveedor.Location = new System.Drawing.Point(54, 119);
+            this.btnRepProveedor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepProveedor.Location = new System.Drawing.Point(383, 153);
             this.btnRepProveedor.Name = "btnRepProveedor";
-            this.btnRepProveedor.Size = new System.Drawing.Size(75, 23);
+            this.btnRepProveedor.Size = new System.Drawing.Size(135, 40);
             this.btnRepProveedor.TabIndex = 3;
             this.btnRepProveedor.Text = "Proveedores";
             this.btnRepProveedor.UseVisualStyleBackColor = true;
@@ -80,9 +85,10 @@
             // 
             // btnRepRolUsuario
             // 
-            this.btnRepRolUsuario.Location = new System.Drawing.Point(54, 163);
+            this.btnRepRolUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepRolUsuario.Location = new System.Drawing.Point(383, 226);
             this.btnRepRolUsuario.Name = "btnRepRolUsuario";
-            this.btnRepRolUsuario.Size = new System.Drawing.Size(75, 23);
+            this.btnRepRolUsuario.Size = new System.Drawing.Size(135, 47);
             this.btnRepRolUsuario.TabIndex = 4;
             this.btnRepRolUsuario.Text = "Roles";
             this.btnRepRolUsuario.UseVisualStyleBackColor = true;
@@ -90,19 +96,31 @@
             // 
             // btnRepUsuario
             // 
-            this.btnRepUsuario.Location = new System.Drawing.Point(54, 211);
+            this.btnRepUsuario.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepUsuario.Location = new System.Drawing.Point(290, 314);
             this.btnRepUsuario.Name = "btnRepUsuario";
-            this.btnRepUsuario.Size = new System.Drawing.Size(75, 23);
+            this.btnRepUsuario.Size = new System.Drawing.Size(115, 49);
             this.btnRepUsuario.TabIndex = 5;
             this.btnRepUsuario.Text = "Usuarios";
             this.btnRepUsuario.UseVisualStyleBackColor = true;
             this.btnRepUsuario.Click += new System.EventHandler(this.btnRepUsuario_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FrontEnd.Properties.Resources.logo3_01;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(16, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(675, 52);
+            this.panel1.TabIndex = 17;
+            // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(711, 515);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRepUsuario);
             this.Controls.Add(this.btnRepRolUsuario);
             this.Controls.Add(this.btnRepProveedor);
@@ -126,5 +144,6 @@
         private System.Windows.Forms.Button btnRepProveedor;
         private System.Windows.Forms.Button btnRepRolUsuario;
         private System.Windows.Forms.Button btnRepUsuario;
+        private System.Windows.Forms.Panel panel1;
     }
 }

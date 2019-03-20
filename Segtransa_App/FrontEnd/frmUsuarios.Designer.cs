@@ -34,14 +34,16 @@
             this.lstUsuarios = new System.Windows.Forms.ListBox();
             this.btnModifyUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(532, 332);
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(587, 451);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(58, 24);
+            this.btnBack.Size = new System.Drawing.Size(89, 30);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "Atras";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -49,9 +51,10 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(67, 278);
+            this.btnAddUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUser.Location = new System.Drawing.Point(109, 377);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(110, 36);
+            this.btnAddUser.Size = new System.Drawing.Size(138, 44);
             this.btnAddUser.TabIndex = 8;
             this.btnAddUser.Text = "Agregar Usuario";
             this.btnAddUser.UseVisualStyleBackColor = true;
@@ -69,17 +72,20 @@
             // 
             // lstUsuarios
             // 
+            this.lstUsuarios.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstUsuarios.FormattingEnabled = true;
-            this.lstUsuarios.Location = new System.Drawing.Point(40, 68);
+            this.lstUsuarios.ItemHeight = 17;
+            this.lstUsuarios.Location = new System.Drawing.Point(16, 107);
             this.lstUsuarios.Name = "lstUsuarios";
-            this.lstUsuarios.Size = new System.Drawing.Size(495, 186);
+            this.lstUsuarios.Size = new System.Drawing.Size(660, 225);
             this.lstUsuarios.TabIndex = 10;
             // 
             // btnModifyUser
             // 
-            this.btnModifyUser.Location = new System.Drawing.Point(225, 278);
+            this.btnModifyUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifyUser.Location = new System.Drawing.Point(267, 377);
             this.btnModifyUser.Name = "btnModifyUser";
-            this.btnModifyUser.Size = new System.Drawing.Size(110, 36);
+            this.btnModifyUser.Size = new System.Drawing.Size(138, 44);
             this.btnModifyUser.TabIndex = 11;
             this.btnModifyUser.Text = "Modificar Usuario";
             this.btnModifyUser.UseVisualStyleBackColor = true;
@@ -87,19 +93,31 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(383, 278);
+            this.btnDeleteUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUser.Location = new System.Drawing.Point(425, 377);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(110, 36);
+            this.btnDeleteUser.Size = new System.Drawing.Size(138, 44);
             this.btnDeleteUser.TabIndex = 12;
             this.btnDeleteUser.Text = "Eliminar Usuario";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FrontEnd.Properties.Resources.logo3_01;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(16, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(675, 52);
+            this.panel1.TabIndex = 17;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(711, 515);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnModifyUser);
             this.Controls.Add(this.lstUsuarios);
@@ -124,5 +142,6 @@
         private System.Windows.Forms.ListBox lstUsuarios;
         private System.Windows.Forms.Button btnModifyUser;
         private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Panel panel1;
     }
 }
