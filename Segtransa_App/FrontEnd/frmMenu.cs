@@ -45,11 +45,11 @@ namespace FrontEnd
             lblFecha.Text = DateTime.Today.ToShortDateString();
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            previousForm.Show();
-        }
+       // private void btnBack_Click(object sender, EventArgs e)
+      //  {
+      //      this.Close();
+      //      previousForm.Show();
+      //  }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {

@@ -63,7 +63,7 @@ namespace FrontEnd
                     pass = cryptoEngine.Encrypt(tbxPassword.Text);
 
                     /*user = usuariosDal.GetUsuario(id);*/
-                    showInfo("Password: " + tbxPassword.Text + " Encryptada: " + pass);
+                    //showInfo("Password: " + tbxPassword.Text + " Encryptada: " + pass);
                     /*Validanado usuario*/
                     if (usuariosDal.isRealUser(id))
                     {
