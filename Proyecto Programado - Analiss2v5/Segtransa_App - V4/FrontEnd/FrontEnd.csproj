@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEE9FF1D-6A40-4A90-A298-9B83424BC079}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FrontEnd</RootNamespace>
+    <AssemblyName>FrontEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.900.148\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\ValoresAplicacion.cs" />
+    <Compile Include="Formularios\FormAsignacionesElimina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesElimina.Designer.cs">
+      <DependentUpon>FormAsignacionesElimina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesInsertar.Designer.cs">
+      <DependentUpon>FormAsignacionesInsertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesLista.Designer.cs">
+      <DependentUpon>FormAsignacionesLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesModifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormAsignacionesModifica.Designer.cs">
+      <DependentUpon>FormAsignacionesModifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormActivoElimina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormActivoElimina.Designer.cs">
+      <DependentUpon>FormActivoElimina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormActivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormActivos.Designer.cs">
+      <DependentUpon>FormActivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormActivosInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormActivosInsertar.Designer.cs">
+      <DependentUpon>FormActivosInsertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormActivoModifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormActivoModifica.designer.cs">
+      <DependentUpon>FormActivoModifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormInicial.Designer.cs">
+      <DependentUpon>FormInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRepActivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRepActivos.Designer.cs">
+      <DependentUpon>FormRepActivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesElimina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesElimina.Designer.cs">
+      <DependentUpon>FormReparacionesElimina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesInsertar.Designer.cs">
+      <DependentUpon>FormReparacionesInsertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesLista.Designer.cs">
+      <DependentUpon>FormReparacionesLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesModifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormReparacionesModifica.Designer.cs">
+      <DependentUpon>FormReparacionesModifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRepAsignaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRepAsignaciones.Designer.cs">
+      <DependentUpon>FormRepAsignaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRepBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRepBitacora.Designer.cs">
+      <DependentUpon>FormRepBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRepReparaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRepReparaciones.Designer.cs">
+      <DependentUpon>FormRepReparaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormRepUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormRepUsuarios.Designer.cs">
+      <DependentUpon>FormRepUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioElimina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioElimina.Designer.cs">
+      <DependentUpon>FormUsuarioElimina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioInserta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioInserta.Designer.cs">
+      <DependentUpon>FormUsuarioInserta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioModifica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormUsuarioModifica.Designer.cs">
+      <DependentUpon>FormUsuarioModifica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormUsuariosLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormUsuariosLista.Designer.cs">
+      <DependentUpon>FormUsuariosLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventarioActivosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioActivosDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InventarioActivosDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventarioActivosDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegtransaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SegtransaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SegtransaDataSetUsuarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SegtransaDataSetUsuarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Formularios\FormActivoElimina.resx">
+      <DependentUpon>FormActivoElimina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormActivos.resx">
+      <DependentUpon>FormActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormActivosInsertar.resx">
+      <DependentUpon>FormActivosInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormInicial.resx">
+      <DependentUpon>FormInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormRepActivos.resx">
+      <DependentUpon>FormRepActivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormRepBitacora.resx">
+      <DependentUpon>FormRepBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormActivoModifica.resx">
+      <DependentUpon>FormActivoModifica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormRepUsuarios.resx">
+      <DependentUpon>FormRepUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormUsuarioElimina.resx">
+      <DependentUpon>FormUsuarioElimina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormUsuarioInserta.resx">
+      <DependentUpon>FormUsuarioInserta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormUsuarioModifica.resx">
+      <DependentUpon>FormUsuarioModifica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormUsuariosLista.resx">
+      <DependentUpon>FormUsuariosLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reportes\rptActivo.rdlc" />
+    <EmbeddedResource Include="Reportes\rptAsignaciones.rdlc" />
+    <EmbeddedResource Include="Reportes\rptReparaciones.rdlc" />
+    <EmbeddedResource Include="Reportes\rptUsuario.rdlc" />
+    <EmbeddedResource Include="Reportes\rtpBitacora.rdlc" />
+    <None Include="App.Config" />
+    <None Include="bin\Debug\Backend.dll.config" />
+    <None Include="bin\Debug\FrontEnd.exe.config" />
+    <None Include="InventarioActivosDataSet.xsc">
+      <DependentUpon>InventarioActivosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventarioActivosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventarioActivosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventarioActivosDataSet.xss">
+      <DependentUpon>InventarioActivosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="InventarioActivosDataSet1.xsc">
+      <DependentUpon>InventarioActivosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="InventarioActivosDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventarioActivosDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventarioActivosDataSet1.xss">
+      <DependentUpon>InventarioActivosDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="obj\Release\FrontEnd.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Release\FrontEnd.csprojAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SegtransaDataSet.xsc">
+      <DependentUpon>SegtransaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SegtransaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SegtransaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SegtransaDataSet.xss">
+      <DependentUpon>SegtransaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SegtransaDataSetUsuarios.xsc">
+      <DependentUpon>SegtransaDataSetUsuarios.xsd</DependentUpon>
+    </None>
+    <None Include="SegtransaDataSetUsuarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SegtransaDataSetUsuarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SegtransaDataSetUsuarios.xss">
+      <DependentUpon>SegtransaDataSetUsuarios.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{ac500664-1ca8-47aa-8157-c4308dc1d5e5}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Backend.dll" />
+    <Content Include="bin\Debug\Backend.pdb" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\EnvDTE.dll" />
+    <Content Include="bin\Debug\EnvDTE80.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="bin\Debug\FrontEnd.exe" />
+    <Content Include="bin\Debug\FrontEnd.pdb" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\Microsoft.Build.Framework.dll" />
+    <Content Include="bin\Debug\Microsoft.Build.Tasks.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.Build.Utilities.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.MSXML.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.Common.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.DataVisualization.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.Design.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WebDesign.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WebForms.dll" />
+    <Content Include="bin\Debug\Microsoft.ReportViewer.WinForms.dll" />
+    <Content Include="bin\Debug\Microsoft.SqlServer.Types.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Data.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Data.Services.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Debugger.Interop.11.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Debugger.InteropA.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Designer.Interfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Designer.Interfaces.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.GraphModel.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.ManagedInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.10.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.10.0.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.11.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.11.0.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.12.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.12.0.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.14.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Immutable.14.0.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Interop.10.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Interop.11.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TemplateWizardInterface.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.VSHelp.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.WCFReference.Interop.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.WCFReference.Interop.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\nunit.engine.api.dll" />
+    <Content Include="bin\Debug\nunit.engine.dll" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.dll" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.pdb" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\stdole.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Dataflow.dll" />
+    <Content Include="bin\Debug\VSLangProj.dll" />
+    <Content Include="bin\Debug\VSLangProj2.dll" />
+    <Content Include="bin\Debug\VSLangProj80.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll" />
+    <Content Include="bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" />
+    <Content Include="Images\logo.png" />
+    <None Include="Resources\Logo.PNG" />
+    <None Include="Resources\logo3-01.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

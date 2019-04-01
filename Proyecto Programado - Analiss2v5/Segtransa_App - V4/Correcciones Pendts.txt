@@ -1,0 +1,12 @@
+Julian   - Usuarios
+
+1- Instalarle nvmnt los DataSet de Usuarios, Activos, Asignaciones, Reparaciones
+
+2- Revsr los errores de metods insertar y modificar Usuarios en los Forms Usuarios y la clase UImplDAL. 
+
+3- Instalar el Dataset pr Reportes de los q estan ahi, xq a mi no se actulizo...
+   Revsr los datos q hay q ircluir en la tabla del Reporte Us y fijarse q sean los correctos.
+
+4- Ya el Form Reporte Usuario esta programado y listo, revsr pr refrescar los DataSet.
+
+5 - la clase Encryptacion no ha sido llamada aun en Login, hay q meter ese codigo bien acomoddo.
