@@ -12,6 +12,8 @@ namespace Backend.Entities
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BDContext : DbContext
     {
@@ -36,5 +38,313 @@ namespace Backend.Entities
         public virtual DbSet<THAsignaciones> THAsignaciones { get; set; }
         public virtual DbSet<THReparaciones> THReparaciones { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+    
+        public virtual int sp_actualizarActivo(Nullable<int> idActivo, string codActivo, Nullable<int> categoria, string descripcion, Nullable<decimal> precioInicial, Nullable<decimal> precioActual, string fechaCompra, Nullable<int> proveedor, Nullable<int> estadoActivo, Nullable<int> garantia)
+        {
+            var idActivoParameter = idActivo.HasValue ?
+                new ObjectParameter("idActivo", idActivo) :
+                new ObjectParameter("idActivo", typeof(int));
+    
+            var codActivoParameter = codActivo != null ?
+                new ObjectParameter("codActivo", codActivo) :
+                new ObjectParameter("codActivo", typeof(string));
+    
+            var categoriaParameter = categoria.HasValue ?
+                new ObjectParameter("categoria", categoria) :
+                new ObjectParameter("categoria", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var precioInicialParameter = precioInicial.HasValue ?
+                new ObjectParameter("precioInicial", precioInicial) :
+                new ObjectParameter("precioInicial", typeof(decimal));
+    
+            var precioActualParameter = precioActual.HasValue ?
+                new ObjectParameter("precioActual", precioActual) :
+                new ObjectParameter("precioActual", typeof(decimal));
+    
+            var fechaCompraParameter = fechaCompra != null ?
+                new ObjectParameter("fechaCompra", fechaCompra) :
+                new ObjectParameter("fechaCompra", typeof(string));
+    
+            var proveedorParameter = proveedor.HasValue ?
+                new ObjectParameter("proveedor", proveedor) :
+                new ObjectParameter("proveedor", typeof(int));
+    
+            var estadoActivoParameter = estadoActivo.HasValue ?
+                new ObjectParameter("estadoActivo", estadoActivo) :
+                new ObjectParameter("estadoActivo", typeof(int));
+    
+            var garantiaParameter = garantia.HasValue ?
+                new ObjectParameter("garantia", garantia) :
+                new ObjectParameter("garantia", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_actualizarActivo", idActivoParameter, codActivoParameter, categoriaParameter, descripcionParameter, precioInicialParameter, precioActualParameter, fechaCompraParameter, proveedorParameter, estadoActivoParameter, garantiaParameter);
+        }
+    
+        public virtual int sp_agregarActivo(string codActivo, Nullable<int> categoria, string descripcion, Nullable<decimal> precioInicial, Nullable<decimal> precioActual, string fechaCompra, Nullable<int> proveedor, Nullable<int> estadoActivo, Nullable<int> garantia)
+        {
+            var codActivoParameter = codActivo != null ?
+                new ObjectParameter("codActivo", codActivo) :
+                new ObjectParameter("codActivo", typeof(string));
+    
+            var categoriaParameter = categoria.HasValue ?
+                new ObjectParameter("categoria", categoria) :
+                new ObjectParameter("categoria", typeof(int));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var precioInicialParameter = precioInicial.HasValue ?
+                new ObjectParameter("precioInicial", precioInicial) :
+                new ObjectParameter("precioInicial", typeof(decimal));
+    
+            var precioActualParameter = precioActual.HasValue ?
+                new ObjectParameter("precioActual", precioActual) :
+                new ObjectParameter("precioActual", typeof(decimal));
+    
+            var fechaCompraParameter = fechaCompra != null ?
+                new ObjectParameter("fechaCompra", fechaCompra) :
+                new ObjectParameter("fechaCompra", typeof(string));
+    
+            var proveedorParameter = proveedor.HasValue ?
+                new ObjectParameter("proveedor", proveedor) :
+                new ObjectParameter("proveedor", typeof(int));
+    
+            var estadoActivoParameter = estadoActivo.HasValue ?
+                new ObjectParameter("estadoActivo", estadoActivo) :
+                new ObjectParameter("estadoActivo", typeof(int));
+    
+            var garantiaParameter = garantia.HasValue ?
+                new ObjectParameter("garantia", garantia) :
+                new ObjectParameter("garantia", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_agregarActivo", codActivoParameter, categoriaParameter, descripcionParameter, precioInicialParameter, precioActualParameter, fechaCompraParameter, proveedorParameter, estadoActivoParameter, garantiaParameter);
+        }
+    
+        public virtual ObjectResult<sp_BuscarActivos_Result> sp_BuscarActivos(string string_busqueda)
+        {
+            var string_busquedaParameter = string_busqueda != null ?
+                new ObjectParameter("string_busqueda", string_busqueda) :
+                new ObjectParameter("string_busqueda", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_BuscarActivos_Result>("sp_BuscarActivos", string_busquedaParameter);
+        }
+    
+        public virtual int sp_eliminarActivo(Nullable<int> idActivo)
+        {
+            var idActivoParameter = idActivo.HasValue ?
+                new ObjectParameter("idActivo", idActivo) :
+                new ObjectParameter("idActivo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_eliminarActivo", idActivoParameter);
+        }
+    
+        public virtual ObjectResult<sp_mostrarActivo_Result> sp_mostrarActivo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_mostrarActivo_Result>("sp_mostrarActivo");
+        }
+    
+        public virtual ObjectResult<Nullable<int>> sp_mostrarCategoriasDiferentes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_mostrarCategoriasDiferentes");
+        }
+    
+        public virtual ObjectResult<string> sp_mostrarCodActivo()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_mostrarCodActivo");
+        }
+    
+        public virtual ObjectResult<string> sp_mostrarCodActivoDiferentes()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_mostrarCodActivoDiferentes");
+        }
+    
+        public virtual ObjectResult<sp_obtenerActivos_Result> sp_obtenerActivos()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_obtenerActivos_Result>("sp_obtenerActivos");
+        }
+    
+        public virtual ObjectResult<spEstadoUsuariosRetornaLista_Result> spEstadoUsuariosRetornaLista()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spEstadoUsuariosRetornaLista_Result>("spEstadoUsuariosRetornaLista");
+        }
+    
+        public virtual ObjectResult<spRolesRetornaLista_Result> spRolesRetornaLista()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spRolesRetornaLista_Result>("spRolesRetornaLista");
+        }
+    
+        public virtual int spUsuariosActualizaUltLogin(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUsuariosActualizaUltLogin", idUsuarioParameter);
+        }
+    
+        public virtual int spUsuariosEliminaDatos(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUsuariosEliminaDatos", idUsuarioParameter);
+        }
+    
+        public virtual int spUsuariosInsertaDatos(string nombre, string apellido, Nullable<int> estado, Nullable<int> rol, Nullable<int> cedula, string contrasena, string telefono, string correo, string direccion, Nullable<System.DateTime> fechaCreacion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            var rolParameter = rol.HasValue ?
+                new ObjectParameter("rol", rol) :
+                new ObjectParameter("rol", typeof(int));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var fechaCreacionParameter = fechaCreacion.HasValue ?
+                new ObjectParameter("fechaCreacion", fechaCreacion) :
+                new ObjectParameter("fechaCreacion", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUsuariosInsertaDatos", nombreParameter, apellidoParameter, estadoParameter, rolParameter, cedulaParameter, contrasenaParameter, telefonoParameter, correoParameter, direccionParameter, fechaCreacionParameter);
+        }
+    
+        public virtual int spUsuariosModificaDatos(Nullable<int> idUsuario, string nombre, string apellido, Nullable<int> estado, Nullable<int> rol, Nullable<int> cedula, string contrasena, string telefono, string correo, string direccion, Nullable<System.DateTime> fechaCreacion)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(int));
+    
+            var rolParameter = rol.HasValue ?
+                new ObjectParameter("rol", rol) :
+                new ObjectParameter("rol", typeof(int));
+    
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(int));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var fechaCreacionParameter = fechaCreacion.HasValue ?
+                new ObjectParameter("fechaCreacion", fechaCreacion) :
+                new ObjectParameter("fechaCreacion", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spUsuariosModificaDatos", idUsuarioParameter, nombreParameter, apellidoParameter, estadoParameter, rolParameter, cedulaParameter, contrasenaParameter, telefonoParameter, correoParameter, direccionParameter, fechaCreacionParameter);
+        }
+    
+        public virtual ObjectResult<spUsuariosRetornaDatosId_Result> spUsuariosRetornaDatosId(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUsuariosRetornaDatosId_Result>("spUsuariosRetornaDatosId", idUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<spUsuariosRetornaDatosLogin_Result> spUsuariosRetornaDatosLogin(string correo, string contrasena)
+        {
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUsuariosRetornaDatosLogin_Result>("spUsuariosRetornaDatosLogin", correoParameter, contrasenaParameter);
+        }
+    
+        public virtual ObjectResult<spUsuariosRetornaLista_Result> spUsuariosRetornaLista(string cedula, string nombre, string correo)
+        {
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUsuariosRetornaLista_Result>("spUsuariosRetornaLista", cedulaParameter, nombreParameter, correoParameter);
+        }
+    
+        public virtual ObjectResult<spUsuariosRetornaListaEmpleados_Result> spUsuariosRetornaListaEmpleados(Nullable<int> idEmpleado)
+        {
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("IdEmpleado", idEmpleado) :
+                new ObjectParameter("IdEmpleado", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUsuariosRetornaListaEmpleados_Result>("spUsuariosRetornaListaEmpleados", idEmpleadoParameter);
+        }
+    
+        public virtual ObjectResult<spUsuariosRetornaListaId_Result> spUsuariosRetornaListaId(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("IdUsuario", idUsuario) :
+                new ObjectParameter("IdUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spUsuariosRetornaListaId_Result>("spUsuariosRetornaListaId", idUsuarioParameter);
+        }
     }
 }

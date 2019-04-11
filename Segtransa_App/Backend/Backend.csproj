@@ -104,6 +104,36 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Segtransa.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\spEstadoUsuariosRetornaLista_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spRolesRetornaLista_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spUsuariosRetornaDatosId_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spUsuariosRetornaDatosLogin_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spUsuariosRetornaListaEmpleados_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spUsuariosRetornaListaId_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\spUsuariosRetornaLista_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_BuscarActivos_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_mostrarActivo_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_obtenerActivos_Result.cs">
+      <DependentUpon>Segtransa.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\THAsignaciones.cs">
       <DependentUpon>Segtransa.tt</DependentUpon>
     </Compile>

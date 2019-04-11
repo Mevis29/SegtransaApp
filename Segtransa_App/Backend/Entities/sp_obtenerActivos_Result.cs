@@ -10,17 +10,18 @@
 namespace Backend.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class THAsignaciones
+    public partial class sp_obtenerActivos_Result
     {
-        public int IdAsignacion { get; set; }
-        public int IdUsuario { get; set; }
         public int IdActivo { get; set; }
-        public System.DateTime FechaInicialAsignacion { get; set; }
-        public System.DateTime FechafinalAsignacion { get; set; }
-    
-        public virtual Activos Activos { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
+        public string CodActivo { get; set; }
+        public int Categoria { get; set; }
+        public string Descripcion { get; set; }
+        public decimal PrecioInicial { get; set; }
+        public decimal PrecioActual { get; set; }
+        public System.DateTime FechaCompra { get; set; }
+        public int Proveedor { get; set; }
+        public int EstadoActivo { get; set; }
+        public int Garantia { get; set; }
     }
 }

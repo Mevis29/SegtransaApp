@@ -24,15 +24,15 @@ namespace Backend.Entities
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public Nullable<int> EstadoUsuario { get; set; }
-        public Nullable<int> RolUsuario { get; set; }
+        public int EstadoUsuario { get; set; }
+        public int RolUsuario { get; set; }
         public int Cedula { get; set; }
         public string Contrasena { get; set; }
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string Direccion { get; set; }
-        public Nullable<System.DateTime> FechaCreacion { get; set; }
-        public Nullable<System.DateTime> FechaUltLogin { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
+        public System.DateTime FechaUltLogin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bitacora> Bitacora { get; set; }

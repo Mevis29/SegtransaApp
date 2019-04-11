@@ -10,15 +10,10 @@
 namespace Backend.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Bitacora
+    public partial class spUsuariosRetornaListaEmpleados_Result
     {
-        public int IdBitacora { get; set; }
-        public byte[] FechaBitacora { get; set; }
-        public string DetalleBitacora { get; set; }
-        public int IdUsuario { get; set; }
-    
-        public virtual Usuarios Usuarios { get; set; }
+        public int Id { get; set; }
+        public string Empleado { get; set; }
     }
 }

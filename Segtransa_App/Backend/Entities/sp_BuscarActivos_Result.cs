@@ -10,15 +10,15 @@
 namespace Backend.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Bitacora
+    public partial class sp_BuscarActivos_Result
     {
-        public int IdBitacora { get; set; }
-        public byte[] FechaBitacora { get; set; }
-        public string DetalleBitacora { get; set; }
-        public int IdUsuario { get; set; }
-    
-        public virtual Usuarios Usuarios { get; set; }
+        public int IdActivo { get; set; }
+        public string CodActivo { get; set; }
+        public string Descripcion { get; set; }
+        public decimal PrecioInicial { get; set; }
+        public System.DateTime FechaCompra { get; set; }
+        public string NombreProveedor { get; set; }
+        public string NombreEstado { get; set; }
     }
 }

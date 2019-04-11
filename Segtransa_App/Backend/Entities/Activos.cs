@@ -24,14 +24,14 @@ namespace Backend.Entities
     
         public int IdActivo { get; set; }
         public string CodActivo { get; set; }
-        public Nullable<int> Categoria { get; set; }
+        public int Categoria { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<decimal> PrecioInicial { get; set; }
-        public Nullable<decimal> PrecioActual { get; set; }
-        public Nullable<System.DateTime> FechaCompra { get; set; }
-        public Nullable<int> Proveedor { get; set; }
-        public Nullable<int> EstadoActivo { get; set; }
-        public Nullable<int> Garantia { get; set; }
+        public decimal PrecioInicial { get; set; }
+        public decimal PrecioActual { get; set; }
+        public System.DateTime FechaCompra { get; set; }
+        public int Proveedor { get; set; }
+        public int EstadoActivo { get; set; }
+        public int Garantia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Depreciacion> Depreciacion { get; set; }

@@ -22,9 +22,9 @@ namespace Backend.Entities
     
         public int IdProveedor { get; set; }
         public string NombreProveedor { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public string Direccion { get; set; }
+        public string TelefonoProv { get; set; }
+        public string CorreoProv { get; set; }
+        public string DireccionProv { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activos> Activos { get; set; }

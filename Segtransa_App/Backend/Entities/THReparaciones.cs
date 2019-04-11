@@ -15,9 +15,9 @@ namespace Backend.Entities
     public partial class THReparaciones
     {
         public int IdReparacion { get; set; }
-        public Nullable<int> IdActivo { get; set; }
-        public Nullable<System.DateTime> FechaInicialReparacion { get; set; }
-        public Nullable<System.DateTime> FechafinalReparacion { get; set; }
+        public int IdActivo { get; set; }
+        public System.DateTime FechaInicialReparacion { get; set; }
+        public System.DateTime FechafinalReparacion { get; set; }
     
         public virtual Activos Activos { get; set; }
     }
