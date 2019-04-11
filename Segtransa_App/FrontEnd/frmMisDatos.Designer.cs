@@ -71,6 +71,7 @@
             // lvMisDatos
             // 
             this.lvMisDatos.AllowColumnReorder = true;
+            this.lvMisDatos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvMisDatos.GridLines = true;
             this.lvMisDatos.HoverSelection = true;
             this.lvMisDatos.Location = new System.Drawing.Point(16, 93);
