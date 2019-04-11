@@ -51,6 +51,7 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grpBoxDatosPersonales.SuspendLayout();
             this.grpBoxDatosContacto.SuspendLayout();
             this.grpBoxAcceso.SuspendLayout();
@@ -66,7 +67,7 @@
             this.grpBoxDatosPersonales.Controls.Add(this.lblApellido1);
             this.grpBoxDatosPersonales.Controls.Add(this.txtNombre);
             this.grpBoxDatosPersonales.Controls.Add(this.lblNombreUsu);
-            this.grpBoxDatosPersonales.Location = new System.Drawing.Point(30, 27);
+            this.grpBoxDatosPersonales.Location = new System.Drawing.Point(33, 86);
             this.grpBoxDatosPersonales.Name = "grpBoxDatosPersonales";
             this.grpBoxDatosPersonales.Size = new System.Drawing.Size(330, 226);
             this.grpBoxDatosPersonales.TabIndex = 0;
@@ -151,7 +152,7 @@
             this.grpBoxDatosContacto.Controls.Add(this.lblEmail);
             this.grpBoxDatosContacto.Controls.Add(this.txtTelefono);
             this.grpBoxDatosContacto.Controls.Add(this.lblTelefono);
-            this.grpBoxDatosContacto.Location = new System.Drawing.Point(422, 27);
+            this.grpBoxDatosContacto.Location = new System.Drawing.Point(369, 86);
             this.grpBoxDatosContacto.Name = "grpBoxDatosContacto";
             this.grpBoxDatosContacto.Size = new System.Drawing.Size(330, 226);
             this.grpBoxDatosContacto.TabIndex = 1;
@@ -212,7 +213,7 @@
             this.grpBoxAcceso.Controls.Add(this.lblContrasena);
             this.grpBoxAcceso.Controls.Add(this.cmbBoxRol);
             this.grpBoxAcceso.Controls.Add(this.lblRol);
-            this.grpBoxAcceso.Location = new System.Drawing.Point(30, 284);
+            this.grpBoxAcceso.Location = new System.Drawing.Point(33, 334);
             this.grpBoxAcceso.Name = "grpBoxAcceso";
             this.grpBoxAcceso.Size = new System.Drawing.Size(330, 126);
             this.grpBoxAcceso.TabIndex = 2;
@@ -255,7 +256,7 @@
             // btnAddUser
             // 
             this.btnAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.Location = new System.Drawing.Point(449, 304);
+            this.btnAddUser.Location = new System.Drawing.Point(469, 398);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(111, 32);
             this.btnAddUser.TabIndex = 3;
@@ -265,7 +266,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(677, 387);
+            this.btnCancelar.Location = new System.Drawing.Point(607, 455);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -273,17 +274,28 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FrontEnd.Properties.Resources.logo3_01;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(16, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(675, 52);
+            this.panel1.TabIndex = 17;
+            // 
             // frmUsuariosAgrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 515);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.grpBoxAcceso);
             this.Controls.Add(this.grpBoxDatosContacto);
             this.Controls.Add(this.grpBoxDatosPersonales);
             this.Name = "frmUsuariosAgrega";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Nuevo Usuario";
             this.Load += new System.EventHandler(this.frmUsuariosAgrega_Load);
             this.grpBoxDatosPersonales.ResumeLayout(false);
@@ -321,5 +333,6 @@
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Panel panel1;
     }
 }

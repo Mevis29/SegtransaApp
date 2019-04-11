@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.ProveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SEGTRANSADataSetProveedor = new FrontEnd.SEGTRANSADataSetProveedor();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ProveedoresTableAdapter = new FrontEnd.SEGTRANSADataSetProveedorTableAdapters.ProveedoresTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SEGTRANSADataSetProveedor)).BeginInit();
             this.SuspendLayout();
@@ -51,11 +52,11 @@
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "DataSourceProveedor";
-            reportDataSource2.Value = this.ProveedoresBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "DataSourceProveedor";
+            reportDataSource1.Value = this.ProveedoresBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FrontEnd.Reportes.rptProveedor.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
+            this.reportViewer1.Location = new System.Drawing.Point(16, 102);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(669, 297);
@@ -67,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 316);
+            this.button1.Location = new System.Drawing.Point(606, 463);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -75,14 +76,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FrontEnd.Properties.Resources.logo3_01;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(16, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(675, 52);
+            this.panel1.TabIndex = 17;
+            // 
             // frmRepProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(711, 515);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmRepProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Proveedores";
             this.Load += new System.EventHandler(this.frmRepProveedor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).EndInit();
@@ -98,5 +111,6 @@
         private SEGTRANSADataSetProveedor SEGTRANSADataSetProveedor;
         private SEGTRANSADataSetProveedorTableAdapters.ProveedoresTableAdapter ProveedoresTableAdapter;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

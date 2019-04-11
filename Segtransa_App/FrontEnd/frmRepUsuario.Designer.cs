@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.UsuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SEGTRANSADataSetUsuarios = new FrontEnd.SEGTRANSADataSetUsuarios();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.UsuariosTableAdapter = new FrontEnd.SEGTRANSADataSetUsuariosTableAdapters.UsuariosTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SEGTRANSADataSetUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -51,14 +52,14 @@
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "DataSourceUsuario";
-            reportDataSource2.Value = this.UsuariosBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "DataSourceUsuario";
+            reportDataSource1.Value = this.UsuariosBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "FrontEnd.Reportes.rptUsuario.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
+            this.reportViewer1.Location = new System.Drawing.Point(16, 80);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(776, 377);
+            this.reportViewer1.Size = new System.Drawing.Size(660, 377);
             this.reportViewer1.TabIndex = 0;
             // 
             // UsuariosTableAdapter
@@ -67,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 395);
+            this.button1.Location = new System.Drawing.Point(597, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -75,14 +76,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FrontEnd.Properties.Resources.logo3_01;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(16, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(675, 52);
+            this.panel1.TabIndex = 17;
+            // 
             // frmRepUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(711, 515);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmRepUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Usuarios";
             this.Load += new System.EventHandler(this.frmRepUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosBindingSource)).EndInit();
@@ -98,5 +110,6 @@
         private SEGTRANSADataSetUsuarios SEGTRANSADataSetUsuarios;
         private SEGTRANSADataSetUsuariosTableAdapters.UsuariosTableAdapter UsuariosTableAdapter;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
