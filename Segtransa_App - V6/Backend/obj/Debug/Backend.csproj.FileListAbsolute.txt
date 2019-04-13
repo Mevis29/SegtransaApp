@@ -1,0 +1,90 @@
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\Backend.dll.config
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\Backend.dll
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\Backend.pdb
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\EntityFramework.dll
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\EntityFramework.xml
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\obj\Debug\Backend.csproj.CopyComplete
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\obj\Debug\Backend.dll
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Melissa\SegtransaApp-master\Segtransa_App\Backend\obj\Debug\Backend.pdb
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto PAW\Segtransa_App\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto PAW\Segtransa_App\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto PAW\Segtransa_App\Backend\obj\Debug\Backend.dll
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto PAW\Segtransa_App\Backend\obj\Debug\Backend.pdb
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto Programado - Analiss2\Segtransa_App - V1\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto Programado - Analiss2\Segtransa_App - V1\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto Programado - Analiss2\Segtransa_App - V1\Backend\obj\Debug\Backend.dll
+C:\Users\Lab05-PC01\Desktop\ANALISIS 2\Proyecto\Proyecto Programado - Analiss2\Segtransa_App - V1\Backend\obj\Debug\Backend.pdb
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Maria Jose v2\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Maria Jose v2\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Maria Jose v2\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.dll
+C:\Users\Practicas\Documents\UFD\Programacion 5\Proyecto-Maria Jose v2\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.pdb
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\Backend.dll.config
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\Backend.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\Backend.pdb
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\Microsoft.CSharp.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Data.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Net.Http.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Security.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Xml.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\System.Xml.Linq.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.xml
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.csproj.CopyComplete
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.pdb
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2\Segtransa_App - V2\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\Backend.dll.config
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\Backend.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\Backend.pdb
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\Microsoft.CSharp.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Data.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Net.Http.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Security.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Xml.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\System.Xml.Linq.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.xml
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\obj\Debug\Backend.csproj.CoreCompileInputs.cache
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\obj\Debug\Backend.csproj.CopyComplete
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\obj\Debug\Backend.dll
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\obj\Debug\Backend.pdb
+C:\Users\randa\OneDrive\Escritorio\Proyecto Programado - Analiss2v4\Segtransa_App - V2\Backend\obj\Debug\Backend.csprojAssemblyReference.cache
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\Backend.dll.config
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\Backend.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\Backend.pdb
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\Microsoft.CSharp.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.ComponentModel.DataAnnotations.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Data.DataSetExtensions.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Data.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Net.Http.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Runtime.Serialization.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Security.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Xml.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\System.Xml.Linq.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.xml
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\obj\Debug\BackEnd.csproj.CopyComplete
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\obj\Debug\Backend.dll
+C:\Users\MELISSAVillalta\source\repos\Randall\Segtransa_App - V2\Backend\obj\Debug\Backend.pdb

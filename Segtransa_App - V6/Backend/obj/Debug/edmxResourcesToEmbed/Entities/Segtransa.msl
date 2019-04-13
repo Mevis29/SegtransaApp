@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SegtransaModelStoreContainer" CdmEntityContainer="BDContext">
+    <EntitySetMapping Name="Activos">
+      <EntityTypeMapping TypeName="SegtransaModel.Activos">
+        <MappingFragment StoreEntitySet="Activos">
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+          <ScalarProperty Name="PrecioActual" ColumnName="PrecioActual" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="EstadoActivo" ColumnName="EstadoActivo" />
+          <ScalarProperty Name="Garantia" ColumnName="Garantia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="SegtransaModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="IdBitacora" ColumnName="IdBitacora" />
+          <ScalarProperty Name="FechaBitacora" ColumnName="FechaBitacora" />
+          <ScalarProperty Name="DetalleBitacora" ColumnName="DetalleBitacora" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="SegtransaModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depreciacion">
+      <EntityTypeMapping TypeName="SegtransaModel.Depreciacion">
+        <MappingFragment StoreEntitySet="Depreciacion">
+          <ScalarProperty Name="IdDepreciacion" ColumnName="IdDepreciacion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaDepreciacion" ColumnName="FechaDepreciacion" />
+          <ScalarProperty Name="MontoDepreciacion" ColumnName="MontoDepreciacion" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoActivos">
+      <EntityTypeMapping TypeName="SegtransaModel.EstadoActivos">
+        <MappingFragment StoreEntitySet="EstadoActivos">
+          <ScalarProperty Name="IdEstadoActivo" ColumnName="IdEstadoActivo" />
+          <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoUsuarios">
+      <EntityTypeMapping TypeName="SegtransaModel.EstadoUsuarios">
+        <MappingFragment StoreEntitySet="EstadoUsuarios">
+          <ScalarProperty Name="IdEstadoUsuario" ColumnName="IdEstadoUsuario" />
+          <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="SegtransaModel.Proveedores">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolUsuarios">
+      <EntityTypeMapping TypeName="SegtransaModel.RolUsuarios">
+        <MappingFragment StoreEntitySet="RolUsuarios">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="NombreRol" ColumnName="NombreRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THAsignaciones">
+      <EntityTypeMapping TypeName="SegtransaModel.THAsignaciones">
+        <MappingFragment StoreEntitySet="THAsignaciones">
+          <ScalarProperty Name="IdAsignacion" ColumnName="IdAsignacion" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="FechaInicialAsignacion" ColumnName="FechaInicialAsignacion" />
+          <ScalarProperty Name="FechafinalAsignacion" ColumnName="FechafinalAsignacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THReparaciones">
+      <EntityTypeMapping TypeName="SegtransaModel.THReparaciones">
+        <MappingFragment StoreEntitySet="THReparaciones">
+          <ScalarProperty Name="IdReparacion" ColumnName="IdReparacion" />
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="FechaInicialReparacion" ColumnName="FechaInicialReparacion" />
+          <ScalarProperty Name="FechafinalReparacion" ColumnName="FechafinalReparacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SegtransaModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="EstadoUsuario" ColumnName="EstadoUsuario" />
+          <ScalarProperty Name="RolUsuario" ColumnName="RolUsuario" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaUltLogin" ColumnName="FechaUltLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_actualizarActivo" FunctionName="SegtransaModel.Store.sp_actualizarActivo" />
+    <FunctionImportMapping FunctionImportName="sp_agregarActivo" FunctionName="SegtransaModel.Store.sp_agregarActivo" />
+    <FunctionImportMapping FunctionImportName="sp_BuscarActivos" FunctionName="SegtransaModel.Store.sp_BuscarActivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.sp_BuscarActivos_Result">
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+          <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_BuscarActivosPorIdYNombre" FunctionName="SegtransaModel.Store.sp_BuscarActivosPorIdYNombre">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.sp_BuscarActivosPorIdYNombre_Result">
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+          <ScalarProperty Name="PrecioActual" ColumnName="PrecioActual" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="Garantia" ColumnName="Garantia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_eliminarActivo" FunctionName="SegtransaModel.Store.sp_eliminarActivo" />
+    <FunctionImportMapping FunctionImportName="sp_IdCategoriaporNombreCategoria" FunctionName="SegtransaModel.Store.sp_IdCategoriaporNombreCategoria" />
+    <FunctionImportMapping FunctionImportName="sp_IdEstadoActivoEstadoActivo" FunctionName="SegtransaModel.Store.sp_IdEstadoActivoEstadoActivo" />
+    <FunctionImportMapping FunctionImportName="sp_IdEstadoActivoporNombreEstadoActivo" FunctionName="SegtransaModel.Store.sp_IdEstadoActivoporNombreEstadoActivo" />
+    <FunctionImportMapping FunctionImportName="sp_IdProveedorporNombreProveedor" FunctionName="SegtransaModel.Store.sp_IdProveedorporNombreProveedor" />
+    <FunctionImportMapping FunctionImportName="sp_listarCategoriaPorId" FunctionName="SegtransaModel.Store.sp_listarCategoriaPorId" />
+    <FunctionImportMapping FunctionImportName="sp_listarCodActivoPorId" FunctionName="SegtransaModel.Store.sp_listarCodActivoPorId" />
+    <FunctionImportMapping FunctionImportName="sp_listarEstadoActivoPorId" FunctionName="SegtransaModel.Store.sp_listarEstadoActivoPorId" />
+    <FunctionImportMapping FunctionImportName="sp_listarProveedorPorId" FunctionName="SegtransaModel.Store.sp_listarProveedorPorId" />
+    <FunctionImportMapping FunctionImportName="sp_mostrarActivo" FunctionName="SegtransaModel.Store.sp_mostrarActivo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.sp_mostrarActivo_Result">
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="NombreProveedor" ColumnName="NombreProveedor" />
+          <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mostrarCategoriasDiferentes" FunctionName="SegtransaModel.Store.sp_mostrarCategoriasDiferentes" />
+    <FunctionImportMapping FunctionImportName="sp_mostrarCodActivo" FunctionName="SegtransaModel.Store.sp_mostrarCodActivo" />
+    <FunctionImportMapping FunctionImportName="sp_mostrarCodActivoDiferentes" FunctionName="SegtransaModel.Store.sp_mostrarCodActivoDiferentes" />
+    <FunctionImportMapping FunctionImportName="sp_obtenerActivos" FunctionName="SegtransaModel.Store.sp_obtenerActivos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.sp_obtenerActivos_Result">
+          <ScalarProperty Name="IdActivo" ColumnName="IdActivo" />
+          <ScalarProperty Name="CodActivo" ColumnName="CodActivo" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PrecioInicial" ColumnName="PrecioInicial" />
+          <ScalarProperty Name="PrecioActual" ColumnName="PrecioActual" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="EstadoActivo" ColumnName="EstadoActivo" />
+          <ScalarProperty Name="Garantia" ColumnName="Garantia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEstadoActivosRetornaLista" FunctionName="SegtransaModel.Store.spEstadoActivosRetornaLista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spEstadoActivosRetornaLista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spEstadoUsuariosRetornaLista" FunctionName="SegtransaModel.Store.spEstadoUsuariosRetornaLista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spEstadoUsuariosRetornaLista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spRolesRetornaLista" FunctionName="SegtransaModel.Store.spRolesRetornaLista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spRolesRetornaLista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUsuariosActualizaUltLogin" FunctionName="SegtransaModel.Store.spUsuariosActualizaUltLogin" />
+    <FunctionImportMapping FunctionImportName="spUsuariosEliminaDatos" FunctionName="SegtransaModel.Store.spUsuariosEliminaDatos" />
+    <FunctionImportMapping FunctionImportName="spUsuariosInsertaDatos" FunctionName="SegtransaModel.Store.spUsuariosInsertaDatos" />
+    <FunctionImportMapping FunctionImportName="spUsuariosModificaDatos" FunctionName="SegtransaModel.Store.spUsuariosModificaDatos" />
+    <FunctionImportMapping FunctionImportName="spUsuariosRetornaDatosId" FunctionName="SegtransaModel.Store.spUsuariosRetornaDatosId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spUsuariosRetornaDatosId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaLogin" ColumnName="FechaLogin" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUsuariosRetornaDatosLogin" FunctionName="SegtransaModel.Store.spUsuariosRetornaDatosLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spUsuariosRetornaDatosLogin_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="UltLogin" ColumnName="UltLogin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUsuariosRetornaLista" FunctionName="SegtransaModel.Store.spUsuariosRetornaLista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spUsuariosRetornaLista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaLogin" ColumnName="FechaLogin" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUsuariosRetornaListaEmpleado" FunctionName="SegtransaModel.Store.spUsuariosRetornaListaEmpleado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spUsuariosRetornaListaEmpleado_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spUsuariosRetornaListaId" FunctionName="SegtransaModel.Store.spUsuariosRetornaListaId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spUsuariosRetornaListaId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaLogin" ColumnName="FechaLogin" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioEliminaDatos" FunctionName="SegtransaModel.Store.spAsignUsuarioEliminaDatos" />
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioInsertaDatos" FunctionName="SegtransaModel.Store.spAsignUsuarioInsertaDatos" />
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioModificaDatos" FunctionName="SegtransaModel.Store.spAsignUsuarioModificaDatos" />
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioRetornaDatosId" FunctionName="SegtransaModel.Store.spAsignUsuarioRetornaDatosId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spAsignUsuarioRetornaDatosId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioRetornaLista" FunctionName="SegtransaModel.Store.spAsignUsuarioRetornaLista">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spAsignUsuarioRetornaLista_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaAsign" ColumnName="FechaAsign" />
+          <ScalarProperty Name="FechafinAsign" ColumnName="FechafinAsign" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spAsignUsuarioRetornaListaId" FunctionName="SegtransaModel.Store.spAsignUsuarioRetornaListaId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegtransaModel.spAsignUsuarioRetornaListaId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="FechaAsign" ColumnName="FechaAsign" />
+          <ScalarProperty Name="FechafinAsign" ColumnName="FechafinAsign" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

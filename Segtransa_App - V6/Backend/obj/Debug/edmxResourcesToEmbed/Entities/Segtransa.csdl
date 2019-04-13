@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SegtransaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Activos">
+    <Key>
+      <PropertyRef Name="IdActivo" />
+    </Key>
+    <Property Name="IdActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodActivo" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Categoria" Type="Int32" />
+    <Property Name="Descripcion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+    <Property Name="PrecioInicial" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PrecioActual" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="FechaCompra" Type="DateTime" Precision="3" />
+    <Property Name="Proveedor" Type="Int32" />
+    <Property Name="EstadoActivo" Type="Int32" />
+    <Property Name="Garantia" Type="Int32" />
+    <NavigationProperty Name="Depreciacion" Relationship="Self.FK_Activo_Depc" FromRole="Activos" ToRole="Depreciacion" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_Categ_Act" FromRole="Activos" ToRole="Categorias" />
+    <NavigationProperty Name="EstadoActivos" Relationship="Self.FK_EstActivo_US" FromRole="Activos" ToRole="EstadoActivos" />
+    <NavigationProperty Name="THAsignaciones" Relationship="Self.FK_IdActivo_THA" FromRole="Activos" ToRole="THAsignaciones" />
+    <NavigationProperty Name="THReparaciones" Relationship="Self.FK_IdActivo_THR" FromRole="Activos" ToRole="THReparaciones" />
+    <NavigationProperty Name="Proveedores" Relationship="Self.FK_Proved_Act" FromRole="Activos" ToRole="Proveedores" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="IdBitacora" />
+    </Key>
+    <Property Name="IdBitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FechaBitacora" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="DetalleBitacora" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdUsuario" Type="Int32" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_IdUsuario_Bi" FromRole="Bitacora" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="IdCategoria" />
+    </Key>
+    <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_Categ_Act" FromRole="Categorias" ToRole="Activos" />
+  </EntityType>
+  <EntityType Name="Depreciacion">
+    <Key>
+      <PropertyRef Name="IdDepreciacion" />
+    </Key>
+    <Property Name="IdDepreciacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="FechaDepreciacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MontoDepreciacion" Type="Double" Nullable="false" />
+    <Property Name="Valor" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_Activo_Depc" FromRole="Depreciacion" ToRole="Activos" />
+  </EntityType>
+  <EntityType Name="EstadoActivos">
+    <Key>
+      <PropertyRef Name="IdEstadoActivo" />
+    </Key>
+    <Property Name="IdEstadoActivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEstado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_EstActivo_US" FromRole="EstadoActivos" ToRole="Activos" />
+  </EntityType>
+  <EntityType Name="EstadoUsuarios">
+    <Key>
+      <PropertyRef Name="IdEstadoUsuario" />
+    </Key>
+    <Property Name="IdEstadoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreEstado" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_EstUsuario_US" FromRole="EstadoUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProveedor" Type="String" MaxLength="90" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="90" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_Proved_Act" FromRole="Proveedores" ToRole="Activos" />
+  </EntityType>
+  <EntityType Name="RolUsuarios">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreRol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_RolUsuario_US" FromRole="RolUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="THAsignaciones">
+    <Key>
+      <PropertyRef Name="IdAsignacion" />
+    </Key>
+    <Property Name="IdAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int32" />
+    <Property Name="IdActivo" Type="Int32" />
+    <Property Name="FechaInicialAsignacion" Type="DateTime" Precision="3" />
+    <Property Name="FechafinalAsignacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_IdActivo_THA" FromRole="THAsignaciones" ToRole="Activos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_IdUsuario_THA" FromRole="THAsignaciones" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="THReparaciones">
+    <Key>
+      <PropertyRef Name="IdReparacion" />
+    </Key>
+    <Property Name="IdReparacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdActivo" Type="Int32" />
+    <Property Name="FechaInicialReparacion" Type="DateTime" Precision="3" />
+    <Property Name="FechafinalReparacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Activos" Relationship="Self.FK_IdActivo_THR" FromRole="THReparaciones" ToRole="Activos" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EstadoUsuario" Type="Int32" />
+    <Property Name="RolUsuario" Type="Int32" />
+    <Property Name="Cedula" Type="Int32" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="0" />
+    <Property Name="FechaUltLogin" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Bitacora" Relationship="Self.FK_IdUsuario_Bi" FromRole="Usuarios" ToRole="Bitacora" />
+    <NavigationProperty Name="EstadoUsuarios" Relationship="Self.FK_EstUsuario_US" FromRole="Usuarios" ToRole="EstadoUsuarios" />
+    <NavigationProperty Name="RolUsuarios" Relationship="Self.FK_RolUsuario_US" FromRole="Usuarios" ToRole="RolUsuarios" />
+    <NavigationProperty Name="THAsignaciones" Relationship="Self.FK_IdUsuario_THA" FromRole="Usuarios" ToRole="THAsignaciones" />
+  </EntityType>
+  <Association Name="FK_Activo_Depc">
+    <End Role="Activos" Type="Self.Activos" Multiplicity="1" />
+    <End Role="Depreciacion" Type="Self.Depreciacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activos">
+        <PropertyRef Name="IdActivo" />
+      </Principal>
+      <Dependent Role="Depreciacion">
+        <PropertyRef Name="Activo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categ_Act">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="IdCategoria" />
+      </Principal>
+      <Dependent Role="Activos">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstActivo_US">
+    <End Role="EstadoActivos" Type="Self.EstadoActivos" Multiplicity="0..1" />
+    <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoActivos">
+        <PropertyRef Name="IdEstadoActivo" />
+      </Principal>
+      <Dependent Role="Activos">
+        <PropertyRef Name="EstadoActivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdActivo_THA">
+    <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+    <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activos">
+        <PropertyRef Name="IdActivo" />
+      </Principal>
+      <Dependent Role="THAsignaciones">
+        <PropertyRef Name="IdActivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdActivo_THR">
+    <End Role="Activos" Type="Self.Activos" Multiplicity="0..1" />
+    <End Role="THReparaciones" Type="Self.THReparaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activos">
+        <PropertyRef Name="IdActivo" />
+      </Principal>
+      <Dependent Role="THReparaciones">
+        <PropertyRef Name="IdActivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proved_Act">
+    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+    <End Role="Activos" Type="Self.Activos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Activos">
+        <PropertyRef Name="Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdUsuario_Bi">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstUsuario_US">
+    <End Role="EstadoUsuarios" Type="Self.EstadoUsuarios" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoUsuarios">
+        <PropertyRef Name="IdEstadoUsuario" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="EstadoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolUsuario_US">
+    <End Role="RolUsuarios" Type="Self.RolUsuarios" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RolUsuarios">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="RolUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdUsuario_THA">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="THAsignaciones" Type="Self.THAsignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="THAsignaciones">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Activos" EntityType="Self.Activos" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+    <EntitySet Name="Depreciacion" EntityType="Self.Depreciacion" />
+    <EntitySet Name="EstadoActivos" EntityType="Self.EstadoActivos" />
+    <EntitySet Name="EstadoUsuarios" EntityType="Self.EstadoUsuarios" />
+    <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
+    <EntitySet Name="RolUsuarios" EntityType="Self.RolUsuarios" />
+    <EntitySet Name="THAsignaciones" EntityType="Self.THAsignaciones" />
+    <EntitySet Name="THReparaciones" EntityType="Self.THReparaciones" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Activo_Depc" Association="Self.FK_Activo_Depc">
+      <End Role="Activos" EntitySet="Activos" />
+      <End Role="Depreciacion" EntitySet="Depreciacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categ_Act" Association="Self.FK_Categ_Act">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Activos" EntitySet="Activos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstActivo_US" Association="Self.FK_EstActivo_US">
+      <End Role="EstadoActivos" EntitySet="EstadoActivos" />
+      <End Role="Activos" EntitySet="Activos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdActivo_THA" Association="Self.FK_IdActivo_THA">
+      <End Role="Activos" EntitySet="Activos" />
+      <End Role="THAsignaciones" EntitySet="THAsignaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdActivo_THR" Association="Self.FK_IdActivo_THR">
+      <End Role="Activos" EntitySet="Activos" />
+      <End Role="THReparaciones" EntitySet="THReparaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proved_Act" Association="Self.FK_Proved_Act">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Activos" EntitySet="Activos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdUsuario_Bi" Association="Self.FK_IdUsuario_Bi">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstUsuario_US" Association="Self.FK_EstUsuario_US">
+      <End Role="EstadoUsuarios" EntitySet="EstadoUsuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolUsuario_US" Association="Self.FK_RolUsuario_US">
+      <End Role="RolUsuarios" EntitySet="RolUsuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdUsuario_THA" Association="Self.FK_IdUsuario_THA">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="THAsignaciones" EntitySet="THAsignaciones" />
+    </AssociationSet>
+    <FunctionImport Name="sp_actualizarActivo">
+      <Parameter Name="idActivo" Mode="In" Type="Int32" />
+      <Parameter Name="codActivo" Mode="In" Type="String" />
+      <Parameter Name="categoria" Mode="In" Type="Int32" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="precioInicial" Mode="In" Type="Decimal" />
+      <Parameter Name="precioActual" Mode="In" Type="Decimal" />
+      <Parameter Name="fechaCompra" Mode="In" Type="String" />
+      <Parameter Name="proveedor" Mode="In" Type="Int32" />
+      <Parameter Name="estadoActivo" Mode="In" Type="Int32" />
+      <Parameter Name="garantia" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_agregarActivo">
+      <Parameter Name="codActivo" Mode="In" Type="String" />
+      <Parameter Name="categoria" Mode="In" Type="Int32" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="precioInicial" Mode="In" Type="Decimal" />
+      <Parameter Name="precioActual" Mode="In" Type="Decimal" />
+      <Parameter Name="fechaCompra" Mode="In" Type="String" />
+      <Parameter Name="proveedor" Mode="In" Type="Int32" />
+      <Parameter Name="estadoActivo" Mode="In" Type="Int32" />
+      <Parameter Name="garantia" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BuscarActivos" ReturnType="Collection(SegtransaModel.sp_BuscarActivos_Result)">
+      <Parameter Name="string_busqueda" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_BuscarActivosPorIdYNombre" ReturnType="Collection(SegtransaModel.sp_BuscarActivosPorIdYNombre_Result)">
+      <Parameter Name="string_busqueda" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_eliminarActivo">
+      <Parameter Name="idActivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_IdCategoriaporNombreCategoria" ReturnType="Collection(Int32)">
+      <Parameter Name="nombreCategoria" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_IdEstadoActivoEstadoActivo" ReturnType="Collection(Int32)">
+      <Parameter Name="nombreEstado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_IdEstadoActivoporNombreEstadoActivo" ReturnType="Collection(Int32)">
+      <Parameter Name="nombreEstado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_IdProveedorporNombreProveedor" ReturnType="Collection(Int32)">
+      <Parameter Name="nombreProveedor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_listarCategoriaPorId" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_listarCodActivoPorId" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_listarEstadoActivoPorId" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_listarProveedorPorId" ReturnType="Collection(String)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_mostrarActivo" ReturnType="Collection(SegtransaModel.sp_mostrarActivo_Result)" />
+    <FunctionImport Name="sp_mostrarCategoriasDiferentes" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="sp_mostrarCodActivo" ReturnType="Collection(String)" />
+    <FunctionImport Name="sp_mostrarCodActivoDiferentes" ReturnType="Collection(String)" />
+    <FunctionImport Name="sp_obtenerActivos" ReturnType="Collection(SegtransaModel.sp_obtenerActivos_Result)" />
+    <FunctionImport Name="spEstadoActivosRetornaLista" ReturnType="Collection(SegtransaModel.spEstadoActivosRetornaLista_Result)" />
+    <FunctionImport Name="spEstadoUsuariosRetornaLista" ReturnType="Collection(SegtransaModel.spEstadoUsuariosRetornaLista_Result)" />
+    <FunctionImport Name="spRolesRetornaLista" ReturnType="Collection(SegtransaModel.spRolesRetornaLista_Result)" />
+    <FunctionImport Name="spUsuariosActualizaUltLogin">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosEliminaDatos">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosInsertaDatos">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+      <Parameter Name="rol" Mode="In" Type="Int32" />
+      <Parameter Name="cedula" Mode="In" Type="Int32" />
+      <Parameter Name="contrasena" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosModificaDatos">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+      <Parameter Name="rol" Mode="In" Type="Int32" />
+      <Parameter Name="cedula" Mode="In" Type="Int32" />
+      <Parameter Name="contrasena" Mode="In" Type="String" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="fechaCreacion" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosRetornaDatosId" ReturnType="Collection(SegtransaModel.spUsuariosRetornaDatosId_Result)">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosRetornaDatosLogin" ReturnType="Collection(SegtransaModel.spUsuariosRetornaDatosLogin_Result)">
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="Contrasena" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosRetornaLista" ReturnType="Collection(SegtransaModel.spUsuariosRetornaLista_Result)">
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosRetornaListaEmpleado" ReturnType="Collection(SegtransaModel.spUsuariosRetornaListaEmpleado_Result)">
+      <Parameter Name="IdEmpleado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spUsuariosRetornaListaId" ReturnType="Collection(SegtransaModel.spUsuariosRetornaListaId_Result)">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioEliminaDatos">
+      <Parameter Name="IdAsignacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioInsertaDatos">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="IdActivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioModificaDatos">
+      <Parameter Name="IdAsignacion" Mode="In" Type="Int32" />
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="IdActivo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioRetornaDatosId" ReturnType="Collection(SegtransaModel.spAsignUsuarioRetornaDatosId_Result)">
+      <Parameter Name="IdAsignacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioRetornaLista" ReturnType="Collection(SegtransaModel.spAsignUsuarioRetornaLista_Result)">
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="CodigoActivo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spAsignUsuarioRetornaListaId" ReturnType="Collection(SegtransaModel.spAsignUsuarioRetornaListaId_Result)">
+      <Parameter Name="IdUsuario" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_BuscarActivos_Result">
+    <Property Type="Int32" Name="IdActivo" Nullable="false" />
+    <Property Type="String" Name="CodActivo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="90" />
+    <Property Type="Decimal" Name="PrecioInicial" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="FechaCompra" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NombreProveedor" Nullable="false" MaxLength="90" />
+    <Property Type="String" Name="NombreEstado" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_BuscarActivosPorIdYNombre_Result">
+    <Property Type="Int32" Name="IdActivo" Nullable="false" />
+    <Property Type="String" Name="CodActivo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="90" />
+    <Property Type="Decimal" Name="PrecioInicial" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="PrecioActual" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="FechaCompra" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Garantia" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_mostrarActivo_Result">
+    <Property Type="Int32" Name="IdActivo" Nullable="false" />
+    <Property Type="String" Name="CodActivo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="90" />
+    <Property Type="Decimal" Name="PrecioInicial" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="FechaCompra" Nullable="true" Precision="23" />
+    <Property Type="String" Name="NombreProveedor" Nullable="false" MaxLength="90" />
+    <Property Type="String" Name="NombreEstado" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="sp_obtenerActivos_Result">
+    <Property Type="Int32" Name="IdActivo" Nullable="false" />
+    <Property Type="String" Name="CodActivo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Categoria" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="90" />
+    <Property Type="Decimal" Name="PrecioInicial" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="PrecioActual" Nullable="true" Precision="19" />
+    <Property Type="DateTime" Name="FechaCompra" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="Proveedor" Nullable="true" />
+    <Property Type="Int32" Name="EstadoActivo" Nullable="true" />
+    <Property Type="Int32" Name="Garantia" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spEstadoActivosRetornaLista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spEstadoUsuariosRetornaLista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="spRolesRetornaLista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUsuariosRetornaDatosId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Estado" Nullable="true" />
+    <Property Type="Int32" Name="Rol" Nullable="true" />
+    <Property Type="String" Name="FechaCreacion" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FechaLogin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUsuariosRetornaDatosLogin_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="UltLogin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Rol" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUsuariosRetornaLista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Rol" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FechaCreacion" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FechaLogin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spUsuariosRetornaListaEmpleado_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Empleado" Nullable="true" MaxLength="134" />
+  </ComplexType>
+  <ComplexType Name="spUsuariosRetornaListaId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Apellido" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Correo" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Rol" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="FechaCreacion" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FechaLogin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="75" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spAsignUsuarioRetornaDatosId_Result">
+    <Property Type="Int32" Name="Id" Nullable="true" />
+    <Property Type="Int32" Name="Usuario" Nullable="true" />
+    <Property Type="Int32" Name="Activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="spAsignUsuarioRetornaLista_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FechaAsign" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FechafinAsign" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+  <ComplexType Name="spAsignUsuarioRetornaListaId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Cedula" Nullable="false" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FechaAsign" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="FechafinAsign" Nullable="true" MaxLength="4000" />
+  </ComplexType>
+</Schema>
